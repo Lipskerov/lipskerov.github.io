@@ -9,11 +9,22 @@
         .navbar a { padding: 14px 16px; text-decoration: none; color: white; display: inline-block; }
         .navbar a:hover { background-color: #0056b3; color: white;  }
         .profile-photo { width: 200px; height: auto; border-radius: 50%; }
+        .logo {
+            width: 150px; /* Adjust size as needed */
+            height: 150px; /* Adjust size as needed */
+            border-radius: 50%; /* This creates the circular crop */
+            object-fit: cover; /* Ensures the image covers the space without stretching */
+            margin: 0 auto; /* Centers the logo */
+            
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Welcome to My Personal Webpage</h1>
+    </div>
+     <!-- Logo -->
+    <div>
+        <img src="logo_image.png" alt="Logo" class="logo">
     </div>
 
     <div class="navbar">
