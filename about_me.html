@@ -4,20 +4,24 @@
     <title>Fedor Lipskerov - Molecular Biologist and PhD Student</title>
     <style>
         body { font-family: Arial, sans-serif; color: #333; background-color: #f0f0f0; }
-        .header, .footer, .navbar { background-color: #007bff; padding: 10px; text-align: center; color: white; }
-        .content { margin: 20px; }
+        .header { background-color: #007bff; padding: 10px; text-align: center; color: white; position: relative; }
+        .footer, .navbar { background-color: #007bff; padding: 10px; text-align: center; color: white; }
+        .content { margin: 20px; text-align: center; }
         .navbar a { padding: 14px 16px; text-decoration: none; color: white; display: inline-block; }
-        .navbar a:hover { background-color: #0056b3; color: white; }
+        .navbar a:hover { background-color: #0056b3; color: white;  }
+        .header img { width: 100px; position: absolute; top: 80%; left: 95%; transform: translate(-50%, -50%); }
+        .profile-photo { width: 200px; height: auto; border-radius: 50%; }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Fedor Lipskerov</h1> 
+        <img src="logo.png" alt="Header Logo">
+        <h1>Fedor Lipskerov</h1>
     </div>
-
+    
     <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about_me.html">About Me</a> 
+        <a href="index.html">Home</a> 
+        <a href="about_me.html">About Me</a>
         <a href="blog.html">Blog</a>
         <a href="msjourney.html">My MS Journey</a>
     </div>
