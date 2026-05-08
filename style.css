@@ -768,3 +768,59 @@ footer {
   .photo-wrapper { width: 180px; height: 220px; }
   .btn { padding: 0.65rem 1.2rem; font-size: 0.82rem; }
 }
+/* ===================================================
+   PUBLICATIONS LIST
+   =================================================== */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pub-item {
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+.pub-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(100,255,218,0.10);
+}
+
+.pub-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.pub-title {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
+}
+
+.pub-journal {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.pub-badge {
+  font-size: 0.68rem;
+  background: var(--accent);
+  color: var(--bg-dark);
+  padding: 0.1rem 0.45rem;
+  border-radius: 3px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
