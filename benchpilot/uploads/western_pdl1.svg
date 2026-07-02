@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="250" font-family="Arial,sans-serif">
+<rect width="640" height="250" fill="#ffffff"/>
+<defs><filter id="b"><feGaussianBlur stdDeviation="2.4"/></filter></defs>
+<text x="24" y="30" font-size="16" font-weight="bold" fill="#15171c">Western blot — PD-L1 expression (TNBC lines)</text>
+<rect x="150" y="55" width="470" height="150" fill="#efeee9" stroke="#d8d6cf"/>
+<text x="230" y="72" font-size="12" fill="#333" text-anchor="middle">MCF-10A</text>
+<text x="360" y="72" font-size="12" fill="#333" text-anchor="middle">MDA-MB-231</text>
+<text x="490" y="72" font-size="12" fill="#333" text-anchor="middle">MDA-MB-468</text>
+<text x="24" y="115" font-size="12" fill="#333">PD-L1  (~35 kDa)</text>
+<rect x="197" y="99" width="66" height="18" rx="7" fill="#1a120c" opacity="0.40" filter="url(#b)"/>
+<rect x="327" y="99" width="66" height="18" rx="7" fill="#1a120c" opacity="0.67" filter="url(#b)"/>
+<rect x="457" y="99" width="66" height="18" rx="7" fill="#1a120c" opacity="0.91" filter="url(#b)"/>
+<text x="24" y="180" font-size="12" fill="#333">GAPDH  (37 kDa)</text>
+<rect x="197" y="164" width="66" height="18" rx="7" fill="#1a120c" opacity="0.84" filter="url(#b)"/>
+<rect x="327" y="164" width="66" height="18" rx="7" fill="#1a120c" opacity="0.87" filter="url(#b)"/>
+<rect x="457" y="164" width="66" height="18" rx="7" fill="#1a120c" opacity="0.85" filter="url(#b)"/>
+<text x="616" y="235" font-size="10" fill="#9a968c" text-anchor="end">synthetic demo image</text>
+</svg>

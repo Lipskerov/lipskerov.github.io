@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BenchPilot — TNBC bench-to-decision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Landing / search hero -->
+<section id="landing">
+  <div class="landing-inner">
+    <div class="landing-logo">◧</div>
+    <h1 class="landing-name">BenchPilot</h1>
+    <p class="landing-vp">From a research question to running experiments — in minutes, grounded in real evidence.</p>
+    <div class="landing-search">
+      <input id="landingQ" type="text" placeholder="Ask a scientific question…  e.g. How can immunotherapy improve treatment response in TNBC?" autocomplete="off" />
+      <button id="landingBtn" class="primary">Search</button>
+    </div>
+    <div class="landing-examples" id="landingExamples"></div>
+    <div class="landing-foot" id="landingFoot">Built with IBM Bob</div>
+  </div>
+</section>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">◧</span>
+    <span class="name">BenchPilot</span>
+    <span class="sub">triple&#8209;negative breast cancer · bench&#8209;to&#8209;decision</span>
+  </div>
+  <div class="meta">
+    <span id="kbStats" class="kb"></span>
+    <span id="engineBadge" class="badge">…</span>
+  </div>
+</header>
+
+<div class="app">
+  <nav class="sidebar">
+    <div class="navgroup-label">Workflow</div>
+    <button class="navitem active" data-view="discover"><span class="step">01</span> Discover</button>
+    <button class="navitem" data-view="design"><span class="step">02</span> Design</button>
+    <button class="navitem" data-view="protocol"><span class="step">03</span> Protocol</button>
+    <div class="navsep"></div>
+    <div class="navgroup-label">Lab</div>
+    <button class="navitem" data-view="inventory"><span class="step">◇</span> Reagent stock</button>
+    <div class="navsep"></div>
+    <div class="navgroup-label">Team</div>
+    <button class="navitem" data-view="projects"><span class="step">▤</span> Projects</button>
+    <button class="navitem" data-view="team"><span class="step">◍</span> Team &amp; tasks</button>
+    <div class="sidefoot">Built with IBM Bob</div>
+  </nav>
+
+  <main class="content">
+    <!-- 01 DISCOVER -->
+    <section id="view-discover" class="view active">
+      <h1>Ask a scientific question</h1>
+      <p class="lede">Search 785 TNBC papers and 1,468 trials, surface the real molecular targets, and carry them into an experiment.</p>
+      <div class="askbar">
+        <input id="q" type="text" placeholder="e.g. PARP inhibitor combination strategies in BRCA-wildtype TNBC" autocomplete="off"/>
+        <button id="askBtn" class="primary">Search</button>
+      </div>
+      <div class="examples" id="examples"></div>
+      <div class="try-hint">Try asking: <span id="demoQ">How can we help more triple-negative breast cancer patients respond to treatment?</span></div>
+      <div id="discoverResults"></div>
+    </section>
+
+    <!-- 02 DESIGN -->
+    <section id="view-design" class="view">
+      <h1>Hypotheses &amp; experiment plan</h1>
+      <p class="lede">Pick a target, choose from competing hypotheses, then get a work-package plan with a timeline of experiments to answer it.</p>
+      <div id="designBody" class="muted-block">Pick a target on the <a href="#" data-goto="discover">Discover</a> tab to generate hypotheses.</div>
+    </section>
+
+    <!-- 03 PROTOCOL -->
+    <section id="view-protocol" class="view">
+      <h1>Draft protocol &amp; check stock</h1>
+      <div class="askbar">
+        <input id="protoInput" type="text" placeholder="Describe the experiment (e.g. PARP inhibitor viability assay in BRCA-wildtype TNBC)"/>
+        <button id="protoBtn" class="primary">Generate</button>
+      </div>
+      <div id="protocolBody"></div>
+    </section>
+
+    <!-- INVENTORY -->
+    <section id="view-inventory" class="view">
+      <div class="inv-head">
+        <h1>Reagent stock</h1>
+        <button id="addBtn" class="ghost">+ Catalogue item</button>
+      </div>
+      <div class="inv-controls">
+        <input id="invSearch" type="text" placeholder="Search name, vendor, catalog #, CAS…"/>
+        <div class="chips" id="catChips"></div>
+      </div>
+      <div id="invSummary" class="inv-summary"></div>
+      <div class="table-wrap">
+        <table id="invTable">
+          <thead><tr>
+            <th></th><th>ID</th><th>Name</th><th>Category</th><th>Stock</th><th>Conc.</th><th>Vendor</th><th>Catalog #</th><th>Location</th>
+          </tr></thead>
+          <tbody id="invBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="view-projects" class="view">
+      <div class="inv-head">
+        <h1>Projects &amp; research map</h1>
+        <button id="newProjBtn" class="ghost">+ New project</button>
+      </div>
+      <p class="lede">Track each project from question to result. The AI stand-up reads the live board — statuses, reagent-readiness, workload — and tells the team what to do next.</p>
+      <div id="projectPicker" class="proj-picker"></div>
+      <div id="projectBody"></div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="view-team" class="view">
+      <div class="inv-head">
+        <h1>Team &amp; tasks</h1>
+        <div style="display:flex;gap:10px">
+          <button id="newTaskBtn" class="ghost">+ New task</button>
+          <button id="suggestBtn" class="primary">✦ Suggest assignments</button>
+        </div>
+      </div>
+      <p class="lede">Assign experiments to the lab, co-work across projects, and let the AI flag duplicated effort and reagent blockers.</p>
+      <div id="rosterBody" class="roster"></div>
+      <div id="dupBody"></div>
+      <div class="section-label">All tasks</div>
+      <div class="table-wrap">
+        <table id="taskTable"><thead><tr>
+          <th>ID</th><th>Task</th><th>Project</th><th>Target</th><th>Assignee</th><th>Status</th><th>Priority</th><th>Due</th>
+        </tr></thead><tbody id="taskBody"></tbody></table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- detail drawer -->
+<div id="scrim" class="scrim"></div>
+<aside id="drawer" class="drawer"></aside>
+
+<!-- add-item modal -->
+<div id="modal" class="modal"><div class="modal-card" id="modalCard"></div></div>
+
+<script src="static-backend.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
