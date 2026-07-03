@@ -866,3 +866,38 @@ function showNode(id) {
   $$("#graphNode .gchip").forEach(el => el.onclick = () => { _ghi = el.dataset.a; drawGraph(el.dataset.a); showNode(el.dataset.a); });
 }
 window.addEventListener("resize", () => { if ($("#view-graph").classList.contains("active") && _graph) drawGraph(_ghi); });
+
+// ================= Papers & trials browser =================
+LOADERS.corpus = () => loadCorpus(true);
+const corpus = { kind: "paper", q: "", offset: 0, total: 0, items: [] };
+
+async function loadCorpus(reset) {
+  if (reset) { corpus.offset = 0; corpus.items = []; }
+  const r = await api(`/api/corpus?kind=${corpus.kind}&q=${encodeURIComponent(corpus.q)}&offset=${corpus.offset}&limit=50`);
+  corpus.total = r.total; corpus.items = corpus.items.concat(r.items);
+  $("#corpusCount").textContent = `Showing ${corpus.items.length} of ${r.total.toLocaleString()} ${corpus.kind === "paper" ? "papers" : "trials"}`;
+  $("#corpusList").innerHTML = corpus.items.map(corpusCard).join("");
+  $("#corpusMore").style.display = corpus.items.length < r.total ? "inline-flex" : "none";
+}
+function corpusCard(x) {
+  if (corpus.kind === "paper") return `<div class="cx">
+    <div class="cx-title">${esc(x.title)}</div>
+    <div class="cx-meta"><a href="https://pubmed.ncbi.nlm.nih.gov/${esc(x.id)}/" target="_blank">PMID ${esc(x.id)}</a>
+      <span>${esc(x.year || "")}</span>${x.journal ? `<span class="cx-j">${esc(x.journal)}</span>` : ""}</div>
+    ${x.abstract ? `<details class="ev-more"><summary>Abstract</summary><div class="ev-body">${esc(x.abstract)}</div></details>` : ""}</div>`;
+  return `<div class="cx">
+    <div class="cx-title">${esc(x.title)}</div>
+    <div class="cx-meta"><a href="https://clinicaltrials.gov/study/${esc(x.id)}" target="_blank">${esc(x.id)}</a>
+      <span class="pill">${esc(x.phase || "—")}</span><span>${esc(x.status || "")}</span>${x.sponsor ? `<span class="cx-j">${esc(x.sponsor)}</span>` : ""}</div>
+    <details class="ev-more"><summary>Details</summary><div class="ev-body">
+      ${x.interventions ? `<div><span class="hk">Interventions</span>${esc(x.interventions)}</div>` : ""}
+      ${(x.primary_outcomes && x.primary_outcomes.length) ? `<div><span class="hk">Primary outcomes</span>${x.primary_outcomes.map(esc).join("; ")}</div>` : ""}
+    </div></details></div>`;
+}
+$$("#corpusSeg button").forEach(b => b.onclick = () => {
+  $$("#corpusSeg button").forEach(x => x.classList.remove("active")); b.classList.add("active");
+  corpus.kind = b.dataset.k; loadCorpus(true);
+});
+let _cxT;
+$("#corpusSearch").addEventListener("input", e => { clearTimeout(_cxT); corpus.q = e.target.value.trim(); _cxT = setTimeout(() => loadCorpus(true), 250); });
+$("#corpusMore").onclick = () => { corpus.offset += 50; loadCorpus(false); };

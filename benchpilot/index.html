@@ -44,9 +44,12 @@
     <button class="navitem" data-view="design"><span class="step">02</span> Design</button>
     <button class="navitem" data-view="protocol"><span class="step">03</span> Protocol</button>
     <div class="navsep"></div>
+    <div class="navgroup-label">Evidence</div>
+    <button class="navitem" data-view="corpus"><span class="step">≣</span> Papers &amp; trials</button>
+    <button class="navitem" data-view="graph"><span class="step">⬡</span> Knowledge graph</button>
+    <div class="navsep"></div>
     <div class="navgroup-label">Lab</div>
     <button class="navitem" data-view="inventory"><span class="step">◇</span> Reagent stock</button>
-    <button class="navitem" data-view="graph"><span class="step">⬡</span> Knowledge graph</button>
     <div class="navsep"></div>
     <div class="navgroup-label">Team</div>
     <button class="navitem" data-view="projects"><span class="step">▤</span> Projects</button>
@@ -104,6 +107,19 @@
           <tbody id="invBody"></tbody>
         </table>
       </div>
+    </section>
+
+    <!-- PAPERS & TRIALS -->
+    <section id="view-corpus" class="view">
+      <h1>Papers &amp; trials</h1>
+      <p class="lede">Browse the full evidence base — 785 TNBC papers and 1,468 clinical trials — search and open any one.</p>
+      <div class="corpus-head">
+        <div class="seg" id="corpusSeg"><button data-k="paper" class="active">📄 Papers</button><button data-k="trial">🧪 Trials</button></div>
+        <input id="corpusSearch" type="text" placeholder="Search titles, abstracts, interventions…"/>
+      </div>
+      <div id="corpusCount" class="corpus-count"></div>
+      <div id="corpusList"></div>
+      <div style="text-align:center;margin:16px 0"><button id="corpusMore" class="ghost" style="display:none">Load more</button></div>
     </section>
 
     <!-- KNOWLEDGE GRAPH -->

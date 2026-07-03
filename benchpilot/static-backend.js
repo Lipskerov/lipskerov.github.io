@@ -243,6 +243,17 @@
     const q = new URLSearchParams(qs || "");
     const parts = path.split("/").filter(Boolean); // e.g. ["api","project","PRJ-01"]
     const seg = parts[1], id = parts[2], sub = parts[3];
+    if (path === "/api/corpus") {
+      const kind = q.get("kind") || "paper", ql = (q.get("q") || "").toLowerCase(), off = +(q.get("offset") || 0), lim = +(q.get("limit") || 50);
+      let arr = kind === "paper" ? D.papers : D.trials;
+      if (ql) arr = arr.filter(x => ((x.title || "") + (x.abstract || "") + (x.interventions || "") + (x.conditions || "")).toLowerCase().includes(ql));
+      if (kind === "paper") arr = arr.slice().sort((a, b) => (b.year || 0) - (a.year || 0));
+      const total = arr.length;
+      const items = arr.slice(off, off + lim).map(x => kind === "paper"
+        ? { id: x.id, title: x.title, abstract: x.abstract, journal: x.journal, year: x.year }
+        : { id: x.id, title: x.title, phase: x.phase, status: x.status, sponsor: x.sponsor, interventions: x.interventions, primary_outcomes: x.primary_outcomes });
+      return { items, total, offset: off, limit: lim };
+    }
     if (path === "/api/graph") return D.graph;
     if (path === "/api/stats") { const p = D.papers.length, t = D.trials.length; return { papers: p, trials: t, inventory: invStats(), engine: "offline" }; }
     if (path === "/api/ask") { const k = body.k || 8, papers = search(body.question, Math.max(k, 20), "paper"), trials = search(body.question, Math.max(k, 20), "trial"); const s = synth(body.question, papers, trials); return { synthesis: s.synthesis, engine: "offline", targets: extractTargets(body.question, papers, trials), papers: papers.slice(0, k), trials: trials.slice(0, k) }; }
