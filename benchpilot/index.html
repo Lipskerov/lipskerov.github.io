@@ -46,6 +46,7 @@
     <div class="navsep"></div>
     <div class="navgroup-label">Lab</div>
     <button class="navitem" data-view="inventory"><span class="step">◇</span> Reagent stock</button>
+    <button class="navitem" data-view="graph"><span class="step">⬡</span> Knowledge graph</button>
     <div class="navsep"></div>
     <div class="navgroup-label">Team</div>
     <button class="navitem" data-view="projects"><span class="step">▤</span> Projects</button>
@@ -102,6 +103,23 @@
           </tr></thead>
           <tbody id="invBody"></tbody>
         </table>
+      </div>
+    </section>
+
+    <!-- KNOWLEDGE GRAPH -->
+    <section id="view-graph" class="view">
+      <h1>Knowledge graph</h1>
+      <p class="lede">A co-mention network of genes, drugs and TNBC subtypes across 785 papers + 1,468 trials. A link-prediction ML model surfaces under-studied but structurally-supported connections worth exploring next.</p>
+      <div class="graph-wrap">
+        <div class="graph-canvas-wrap"><canvas id="graphCanvas"></canvas><div id="graphTip" class="graph-tip"></div>
+          <div class="graph-legend"><span><i style="background:#0d9488"></i>gene / target</span><span><i style="background:#3b82f6"></i>drug</span><span><i style="background:#8b5cf6"></i>subtype</span></div>
+        </div>
+        <div class="graph-side">
+          <div id="graphModel"></div>
+          <div id="graphPreds"></div>
+          <div id="graphEmerging"></div>
+          <div id="graphNode" class="gnode-empty">Hover or click a node to inspect it.</div>
+        </div>
       </div>
     </section>
 

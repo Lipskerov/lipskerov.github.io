@@ -768,3 +768,101 @@ function renderRoadmap(board) {
   if (brand) brand.onclick = () => { L.classList.remove("hidden"); setTimeout(() => $("#landingQ").focus(), 100); };
   setTimeout(() => $("#landingQ").focus(), 300);
 })();
+
+// ================= Knowledge graph (+ link-prediction ML) =================
+LOADERS.graph = loadGraph;
+const GCOLOR = { gene: "#0d9488", drug: "#3b82f6", subtype: "#8b5cf6" };
+let _graph = null, _gpos = null, _gadj = null, _ghi = null;
+
+async function loadGraph() {
+  if (!_graph) _graph = await api("/api/graph");
+  const g = _graph;
+  _gadj = {}; g.nodes.forEach(n => _gadj[n.id] = {});
+  g.edges.forEach(e => { (_gadj[e.source] = _gadj[e.source] || {})[e.target] = e.weight; (_gadj[e.target] = _gadj[e.target] || {})[e.source] = e.weight; });
+  renderGraphPanels(g);
+  setTimeout(() => drawGraph(), 60);          // after layout settles
+}
+
+function renderGraphPanels(g) {
+  const m = g.model || {};
+  $("#graphModel").innerHTML = `<div class="gcard"><h3>✦ Link-prediction model</h3>
+    <div class="gbadge">${esc(m.name || "LogisticRegression")} · AUC <b>${m.auc != null ? m.auc : "—"}</b></div>
+    <div class="gsub">Trained on graph features: ${(m.features || []).join(", ")}.</div>
+    <div class="gstats">${(g.stats || {}).nodes || 0} nodes · ${(g.stats || {}).edges || 0} edges · ${(g.stats || {}).communities || 0} communities · ${(g.stats || {}).docs || 0} docs</div></div>`;
+  $("#graphPreds").innerHTML = `<div class="section-label">Connections worth exploring</div>` +
+    (g.predictions || []).map(p => `<div class="gpred" data-a="${esc(p.a)}" data-b="${esc(p.b)}">
+      <div class="gpred-top"><span>${esc(p.a)} <span class="gx">✕</span> ${esc(p.b)}</span><span class="gscore">${p.score}</span></div>
+      <div class="gpred-bar"><span style="width:${Math.round(p.score * 100)}%"></span></div>
+      <div class="gpred-why">${esc(p.type_a)} × ${esc(p.type_b)} · structurally supported · ${p.shared} shared neighbours</div></div>`).join("");
+  $("#graphEmerging").innerHTML = `<div class="section-label">Emerging (rising mentions)</div><div class="gemerge">` +
+    (g.emerging || []).map(e => `<span class="gtrend" data-a="${esc(e.id)}">${esc(e.id)} <b>▲ ${e.slope > 0 ? "+" : ""}${e.slope}</b></span>`).join("") + `</div>`;
+  $$("#graphPreds .gpred").forEach(el => el.onclick = () => { _ghi = el.dataset.a; drawGraph(el.dataset.a, el.dataset.b); showNode(el.dataset.a); });
+  $$("#graphEmerging .gtrend").forEach(el => el.onclick = () => { _ghi = el.dataset.a; drawGraph(el.dataset.a); showNode(el.dataset.a); });
+}
+
+function drawGraph(hiA, hiB) {
+  const g = _graph, cv = $("#graphCanvas"), wrap = cv.parentElement;
+  const dpr = window.devicePixelRatio || 1, W = wrap.clientWidth, H = 540;
+  cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + "px"; cv.style.height = H + "px";
+  const ctx = cv.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+  const xs = g.nodes.map(n => n.x), ys = g.nodes.map(n => n.y);
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys), pad = 60;
+  const sx = v => pad + (v - minX) / (maxX - minX || 1) * (W - 2 * pad);
+  const sy = v => pad + (v - minY) / (maxY - minY || 1) * (H - 2 * pad);
+    _gpos = {}; g.nodes.forEach(n => { _gpos[n.id] = { x: sx(n.x), y: sy(n.y), r: 4 + Math.sqrt(n.pagerank) * 42, n }; });
+  const hi = hiA ? new Set([hiA, hiB].filter(Boolean).concat(hiA ? Object.keys(_gadj[hiA] || {}) : []).concat(hiB ? Object.keys(_gadj[hiB] || {}) : [])) : null;
+  const maxW = Math.max(...g.edges.map(e => e.weight), 1);
+  // edges
+  g.edges.forEach(e => {
+    const a = _gpos[e.source], b = _gpos[e.target]; if (!a || !b) return;
+    const on = !hi || (hi.has(e.source) && hi.has(e.target)) || (hiA && (e.source === hiA || e.target === hiA)) || (hiB && (e.source === hiB || e.target === hiB));
+    const pair = hiA && hiB && ((e.source === hiA && e.target === hiB) || (e.source === hiB && e.target === hiA));
+    ctx.strokeStyle = pair ? "rgba(224,82,74,.9)" : on ? `rgba(15,18,22,${0.08 + 0.5 * e.weight / maxW})` : "rgba(15,18,22,.03)";
+    ctx.lineWidth = pair ? 2.5 : on ? 0.4 + 2 * e.weight / maxW : 0.4;
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+  });
+  // predicted link (dashed red) if two-node highlight but no existing edge
+  if (hiA && hiB && !(_gadj[hiA] || {})[hiB]) { const a = _gpos[hiA], b = _gpos[hiB]; ctx.save(); ctx.setLineDash([6, 5]); ctx.strokeStyle = "#e0524a"; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); ctx.restore(); }
+  // nodes
+  g.nodes.slice().sort((a, b) => a.pagerank - b.pagerank).forEach(n => {
+    const p = _gpos[n.id], on = !hi || hi.has(n.id);
+    ctx.globalAlpha = on ? 1 : 0.18;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fillStyle = GCOLOR[n.type] || "#888"; ctx.fill();
+    ctx.lineWidth = 1.5; ctx.strokeStyle = "#fff"; ctx.stroke();
+    ctx.globalAlpha = 1;
+  });
+  // labels (top nodes + highlighted)
+  ctx.font = "600 11.5px 'IBM Plex Sans',sans-serif"; ctx.fillStyle = "#15171c";
+  const byPR = g.nodes.slice().sort((a, b) => b.pagerank - a.pagerank);
+  const labelSet = new Set(byPR.slice(0, 11).map(n => n.id)); if (hi) hi.forEach(id => labelSet.add(id));
+  labelSet.forEach(id => { const p = _gpos[id]; if (!p) return; if (hi && !hi.has(id)) return; ctx.fillText(id, p.x + p.r + 3, p.y + 4); });
+  wireGraphHover();
+}
+
+function wireGraphHover() {
+  const cv = $("#graphCanvas"), tip = $("#graphTip");
+  cv.onmousemove = e => {
+    const rect = cv.getBoundingClientRect(), mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    let hit = null; for (const id in _gpos) { const p = _gpos[id]; if ((mx - p.x) ** 2 + (my - p.y) ** 2 <= (p.r + 4) ** 2) { hit = id; break; } }
+    if (hit) { const n = _gpos[hit].n; tip.style.display = "block"; tip.style.left = (mx + 14) + "px"; tip.style.top = (my + 8) + "px"; tip.innerHTML = `<b>${esc(hit)}</b> · ${esc(n.type)}<br>${n.mentions} mentions · ${n.degree} links · trend ${n.trend > 0 ? "+" : ""}${n.trend}`; cv.style.cursor = "pointer"; }
+    else { tip.style.display = "none"; cv.style.cursor = "default"; }
+  };
+  cv.onmouseleave = () => { tip.style.display = "none"; };
+  cv.onclick = e => {
+    const rect = cv.getBoundingClientRect(), mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    for (const id in _gpos) { const p = _gpos[id]; if ((mx - p.x) ** 2 + (my - p.y) ** 2 <= (p.r + 4) ** 2) { _ghi = id; drawGraph(id); showNode(id); return; } }
+    _ghi = null; drawGraph();
+  };
+}
+
+function showNode(id) {
+  const n = (_graph.nodes || []).find(x => x.id === id); if (!n) return;
+  const nb = Object.entries(_gadj[id] || {}).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  $("#graphNode").className = "";
+  $("#graphNode").innerHTML = `<div class="gcard"><h3>${esc(id)} <span class="cat-tag">${esc(n.type)}</span></h3>
+    <div class="gstats">${n.mentions} mentions · ${n.degree} connections · PageRank ${n.pagerank} · trend ${n.trend > 0 ? "+" : ""}${n.trend}</div>
+    <div class="section-label" style="margin:14px 0 8px">Most connected</div>
+    <div class="gchips">${nb.map(([id2, w]) => `<span class="gchip" data-a="${esc(id2)}">${esc(id2)} <b>${w}</b></span>`).join("")}</div></div>`;
+  $$("#graphNode .gchip").forEach(el => el.onclick = () => { _ghi = el.dataset.a; drawGraph(el.dataset.a); showNode(el.dataset.a); });
+}
+window.addEventListener("resize", () => { if ($("#view-graph").classList.contains("active") && _graph) drawGraph(_ghi); });

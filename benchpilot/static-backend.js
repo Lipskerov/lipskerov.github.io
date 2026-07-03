@@ -4,13 +4,14 @@
 (function () {
   "use strict";
   const LS = "benchpilot_state_v3";
-  const D = { papers: [], trials: [], inventory: [], members: [], projects: [], tasks: [] };
+  const D = { papers: [], trials: [], inventory: [], members: [], projects: [], tasks: [], graph: { nodes: [], edges: [] } };
   let BM = null;
 
   // ---------------- boot ----------------
   const READY = (async () => {
     const [papers, trials, inventory, team] = await Promise.all(
       ["data/papers.json", "data/trials.json", "data/inventory.json", "data/team.json"].map(u => fetch(u).then(r => r.json())));
+    D.graph = await fetch("data/graph.json").then(r => r.json()).catch(() => ({ nodes: [], edges: [], predictions: [], emerging: [], model: {}, stats: {} }));
     D.papers = papers; D.trials = trials;
     const saved = localStorage.getItem(LS);
     if (saved) { const s = JSON.parse(saved); D.inventory = s.inventory; D.members = s.members; D.projects = s.projects; D.tasks = s.tasks; }
@@ -242,6 +243,7 @@
     const q = new URLSearchParams(qs || "");
     const parts = path.split("/").filter(Boolean); // e.g. ["api","project","PRJ-01"]
     const seg = parts[1], id = parts[2], sub = parts[3];
+    if (path === "/api/graph") return D.graph;
     if (path === "/api/stats") { const p = D.papers.length, t = D.trials.length; return { papers: p, trials: t, inventory: invStats(), engine: "offline" }; }
     if (path === "/api/ask") { const k = body.k || 8, papers = search(body.question, Math.max(k, 20), "paper"), trials = search(body.question, Math.max(k, 20), "trial"); const s = synth(body.question, papers, trials); return { synthesis: s.synthesis, engine: "offline", targets: extractTargets(body.question, papers, trials), papers: papers.slice(0, k), trials: trials.slice(0, k) }; }
     if (path === "/api/hypotheses") { const qn = body.question || body.target, papers = search(qn, 25, "paper"), trials = search(qn, 25, "trial"); return hypotheses(body.target, body.question || "", papers, trials); }

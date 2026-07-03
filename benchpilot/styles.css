@@ -392,3 +392,36 @@ select.mini:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--ring);ou
 .landing-foot{font-size:12.5px;color:var(--muted);font-family:"IBM Plex Mono",monospace}
 .brand{cursor:pointer}
 @media (max-width:640px){.landing-name{font-size:40px}.landing-vp{font-size:17px}.landing-search{flex-direction:column}}
+
+/* ===== Knowledge graph ===== */
+.graph-wrap{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+.graph-canvas-wrap{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+#graphCanvas{display:block;width:100%}
+.graph-tip{position:absolute;display:none;background:#0c0f14;color:#fff;font-size:12px;line-height:1.4;padding:7px 10px;border-radius:8px;pointer-events:none;z-index:5;box-shadow:var(--shadow-lg);max-width:220px}
+.graph-tip b{color:#5fe6d6}
+.graph-legend{position:absolute;bottom:10px;left:12px;display:flex;gap:14px;font-size:11.5px;color:var(--ink-soft);background:rgba(255,255,255,.8);backdrop-filter:blur(4px);padding:5px 10px;border-radius:99px;border:1px solid var(--line)}
+.graph-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.graph-side{display:flex;flex-direction:column;gap:14px}
+.gcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow)}
+.gcard h3{margin:0 0 9px;font-size:13px;font-weight:600}
+.gbadge{display:inline-block;background:var(--grad);color:#fff;font-size:12.5px;font-weight:500;padding:5px 12px;border-radius:999px}
+.gbadge b{font-weight:700}
+.gcard .gsub{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.45}
+.gstats{font-size:11.5px;color:var(--ink-soft);font-family:"IBM Plex Mono",monospace;margin-top:9px}
+.gpred{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--panel);box-shadow:var(--shadow);cursor:pointer;transition:border-color .14s}
+.gpred:hover{border-color:var(--accent)}
+.gpred-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500}
+.gpred-top .gx{color:var(--muted)}
+.gscore{font-family:"IBM Plex Mono",monospace;color:var(--accent-ink);font-weight:600}
+.gpred-bar{height:5px;background:var(--line-soft);border-radius:99px;margin:7px 0 5px;overflow:hidden}
+.gpred-bar>span{display:block;height:100%;background:var(--grad)}
+.gpred-why{font-size:11px;color:var(--muted)}
+.gemerge{display:flex;flex-wrap:wrap;gap:7px}
+.gtrend{font-size:12px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.gtrend:hover{border-color:var(--accent)}
+.gtrend b{color:var(--ok)}
+.gnode-empty{color:var(--muted);font-size:13px;padding:16px;border:1px dashed var(--line);border-radius:var(--radius);background:var(--panel)}
+.gchips{display:flex;flex-wrap:wrap;gap:7px}
+.gchip{font-size:12px;background:var(--accent-soft);color:var(--accent-ink);border-radius:99px;padding:4px 10px;cursor:pointer}
+.gchip:hover{background:#d6efec}
+@media (max-width:900px){.graph-wrap{grid-template-columns:1fr}}
