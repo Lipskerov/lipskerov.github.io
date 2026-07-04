@@ -634,3 +634,26 @@ select.mini:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--ring);ou
     min-height: 44px;
   }
 }
+
+/* ===== Mobile fixes — mapped to this app's real classes (override earlier rules) ===== */
+@media (max-width:768px){
+  .content{padding:18px 16px;max-width:100%}
+  .board{grid-template-columns:1fr}                 /* stack Kanban columns */
+  .col{min-width:100%}
+  .graph-wrap{grid-template-columns:1fr}
+  .evidence,.kv,.formgrid,.hgrid,.wp-meta{grid-template-columns:1fr!important}
+  .kv{gap:2px 0}.kv .k{margin-top:9px;font-weight:600}
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  #invTable,#taskTable{min-width:680px}             /* wide tables scroll inside their box */
+  .inv-controls,.corpus-head{flex-direction:column;align-items:stretch}
+  .inv-head,.proj-header,.spinup-cta,.plan-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .modal-card{width:94vw;padding:20px}
+  .gantt-label{width:150px}.gantt-ruler{margin-left:150px}
+  h1{font-size:21px}.lede{font-size:14px}
+}
+@media (max-width:480px){
+  .targets,.proj-picker,.roster,.wps,.hyps{grid-template-columns:1fr}
+  .landing-name{font-size:34px}.landing-vp{font-size:16px}
+  .askbar{flex-direction:column}.askbar button.primary{height:46px}
+  .seg{width:100%}.seg button{flex:1}
+}
