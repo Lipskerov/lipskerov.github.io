@@ -762,8 +762,13 @@ function renderRoadmap(board) {
   const go = () => enter($("#landingQ").value.trim());
   $("#landingBtn").onclick = go;
   $("#landingQ").addEventListener("keydown", e => { if (e.key === "Enter") go(); });
-  $("#landingExamples").innerHTML = EXAMPLES.slice(0, 3).map(e => `<span class="ex">${esc(e)}</span>`).join("");
-  $$("#landingExamples .ex").forEach(x => x.onclick = () => enter(x.textContent));
+  const LANDING_EXAMPLES = [
+    "How can we help more triple-negative breast cancer patients respond to treatment?",
+    EXAMPLES[0], EXAMPLES[2],
+  ];
+  $("#landingExamples").innerHTML = LANDING_EXAMPLES.map((e, i) =>
+    `<span class="ex${i === 0 ? " ex-demo" : ""}" data-q="${esc(e)}">${i === 0 ? "▶ Try the demo: " : ""}${esc(e)}</span>`).join("");
+  $$("#landingExamples .ex").forEach(x => x.onclick = () => enter(x.dataset.q));
   const brand = document.querySelector(".brand");
   if (brand) brand.onclick = () => { L.classList.remove("hidden"); setTimeout(() => $("#landingQ").focus(), 100); };
   setTimeout(() => $("#landingQ").focus(), 300);

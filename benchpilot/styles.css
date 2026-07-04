@@ -657,3 +657,7 @@ select.mini:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--ring);ou
   .askbar{flex-direction:column}.askbar button.primary{height:46px}
   .seg{width:100%}.seg button{flex:1}
 }
+
+/* landing demo option chip */
+.landing-examples .ex-demo{background:var(--grad);color:#fff;border:none;font-weight:600;box-shadow:0 2px 12px var(--ring)}
+.landing-examples .ex-demo:hover{color:#fff;transform:translateY(-1px)}
