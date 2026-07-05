@@ -706,8 +706,19 @@ async function openTaskDrawer(id, pid) {
   const row = (k, v) => v ? `<div class="drow"><span class="dk">${k}</span><span>${esc(v)}</span></div>` : "";
   const list = (k, a) => (a && a.length) ? `<div class="drow"><span class="dk">${k}</span><span>${a.map(esc).join(", ")}</span></div>` : "";
   const rd = t.readiness || { ready: true, missing: [] };
-  const photos = (t.attachments || []).map(u =>
-    `<a href="${esc(u)}" target="_blank"><img class="tphoto-img" src="${esc(u)}" alt="attachment"></a>`).join("");
+  const PHOTO_CAP = {
+    fedor_bench: "At the bench — running the assay",
+    fedor_microscope: "At the scope — live imaging",
+    western_pdl1: "Result — PD-L1 immunoblot",
+    if_pdl1: "Result — PD-L1 IF (green) / DAPI (blue)",
+    plate_map: "Plate map — treatment layout",
+  };
+  const capOf = u => { const k = Object.keys(PHOTO_CAP).find(k => u.includes(k)); return k ? PHOTO_CAP[k] : ""; };
+  const photos = (t.attachments || []).map(u => {
+    const c = capOf(u);
+    return `<figure class="tphoto-fig"><a href="${esc(u)}" target="_blank"><img class="tphoto-img" src="${esc(u)}" alt="${esc(c || "attachment")}"></a>${c ? `<figcaption>${esc(c)}</figcaption>` : ""}</figure>`;
+  }).join("");
+  const hasMe = (t.attachments || []).some(u => u.includes("fedor_"));
   $("#drawer").innerHTML = `<button class="close" id="dClose">×</button>
     <h2>${esc(t.title)}</h2>
     <div class="dsub">${esc(t.id)} · ${esc(t.stage)} · <span class="prio ${t.priority}">${t.priority}</span></div>
@@ -717,7 +728,7 @@ async function openTaskDrawer(id, pid) {
     ${row("Replicates", d.replicates ? "n = " + d.replicates : "")}${list("Controls", d.controls)}${row("Readout", d.readout)}
     ${(t.reagents && t.reagents.length) ? `<div class="dsec">Reagents ${rd.ready ? '<span class="ready">in stock</span>' : '<span class="ready block">need ' + esc(rd.missing.join(", ")) + '</span>'}</div>
       <div class="drow" style="grid-template-columns:1fr"><span>${t.reagents.map(esc).join(", ")}</span></div>` : ""}
-    <div class="dsec">Protocol photos</div>
+    <div class="dsec">${hasMe ? "Execution — at the bench &amp; result" : "Protocol photos"}</div>
     <div class="tphotos">${photos || '<span class="muted" style="color:var(--muted);font-size:12.5px">No photos yet.</span>'}</div>
     <label class="upl">📷 Add photo<input type="file" id="tUpload" accept="image/*" hidden></label>`;
   openPanel();
