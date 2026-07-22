@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fedor Lipskerov, PhD – Molecular Biologist & Pharma BD</title>
-  <meta name="description" content="Personal webpage of Fedor Lipskerov, PhD – molecular biologist, pharma BD professional, and biotech builder based in Haifa, Israel." />
+  <title>Fedor Lipskerov, PhD – Molecular Biologist | Drug Discovery, BD &amp; Diligence</title>
+  <meta name="description" content="Fedor Lipskerov, PhD – early-career molecular biologist (Technion, Ciechanover Lab) working across drug discovery, biotech business development, and scientific due diligence. Haifa, Israel." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <div id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ========== NAVBAR ========== -->
   <nav id="navbar">
@@ -19,6 +21,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#publications">Publications</a></li>
@@ -32,15 +35,20 @@
   <section id="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <span class="hero-tag">PhD Molecular Biologist &middot; Pharma BD &middot; Biotech Builder</span>
+        <span class="hero-tag">PhD Molecular Biologist &middot; Drug Discovery &middot; Biotech BD &amp; Diligence</span>
         <h1>Fedor <span class="accent">Lipskerov</span>, PhD</h1>
-        <p class="hero-subtitle">Scientist at the intersection of deep biology, AI/LLM drug discovery, and BD</p>
+        <p class="hero-subtitle">Early-career scientist working where molecular biology, AI-enabled drug discovery, and the business of biotech meet</p>
         <p class="hero-desc">
-          PhD molecular biologist from Technion’s Ciechanover Nobel Lab, working where deep biology, AI drug discovery, and biotech business meet. 
-          Motivated by my Multiple Sclerosis journey, I bring pharma innovation, startup experience, BD scale-up, and VC due diligence.
+          I completed my PhD in the lab of Nobel Laureate Prof. Aaron Ciechanover at the Technion, mapping the
+          proteasome-binding region of p62/SQSTM1 &mdash; published as first author in <em>Cells</em> (2026).
+          Alongside the bench, I&rsquo;ve worked on pharma innovation programs with Servier and Daiichi Sankyo,
+          founded an AI microbiome venture, and built hands-on experience in business development and
+          scientific due diligence. Living with multiple sclerosis is a large part of why I care about
+          getting translational science right.
         </p>
         <div class="hero-btns">
-          <a href="#about" class="btn btn-primary">Explore My Work</a>
+          <a href="#portfolio" class="btn btn-primary">See My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
         </div>
         <div class="hero-socials">
           <a href="https://www.linkedin.com/in/lipskerov" target="_blank" rel="noopener" class="social-link">
@@ -54,6 +62,12 @@
               <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
             </svg>
             Google Scholar
+          </a>
+          <a href="https://github.com/Lipskerov" target="_blank" rel="noopener" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
           </a>
         </div>
       </div>
@@ -70,42 +84,53 @@
   <!-- ========== ABOUT ========== -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title">Profile</h2>
+      <h2 class="section-title" data-num="01">Profile</h2>
       <p class="about-lead">
-PhD molecular biologist from the Technion’s Ciechanover Lab, shaped by both science and my own journey with multiple sclerosis.
-I work at the intersection of deep biology, AI/LLM-enabled drug discovery, and the people who need to turn science into real decisions — pharma R&D, BD teams, startups, and investors.
-My background combines scientific depth with business execution: three 1st-place pharma innovation programs with Servier and Daiichi Sankyo, two biotech startups, BD scale-up experience reaching 150,000 clients, and a market thesis on the autoimmunity landscape for a US healthcare VC.
+        I&rsquo;m an early-career molecular biologist who recently completed a PhD in the Ciechanover Lab at the
+        Technion. My work sits at the intersection of deep biology, AI-enabled drug discovery, and the people who
+        have to turn science into decisions &mdash; pharma R&amp;D teams, founders, and investors.
+      </p>
+      <p class="about-lead">
+        The science side is peer-reviewed: four publications, including first-author work in <em>Cells</em> (2026)
+        and <em>IJMS</em> (2022). The business side is hands-on rather than senior: three intensive pharma
+        innovation programs with Servier and Daiichi Sankyo, a microbiome venture I founded and ran with a team of
+        five, a business development role at a B2B platform, and scientific due-diligence work &mdash; first for a
+        corporate venture arm, and currently for a US healthcare VC&rsquo;s autoimmunity market thesis.
+      </p>
+      <p class="about-note">
+        This page is written to be checkable. Every publication links to its DOI and every project links to its
+        repository or a live demo.
       </p>
       <div class="expertise-grid">
         <div class="expertise-card fade-up">
           <div class="expertise-icon">🧬</div>
           <h3>Molecular Biology &amp; Protein Engineering</h3>
-          <p>p62/SQSTM1 proteasome biology (Ciechanover Lab, <em>Cells</em> 2026); bispecific antibody design, SPR characterization, expression-system optimization at Vavilov Institute</p>
+          <p>p62/SQSTM1 proteasome biology in the Ciechanover Lab (<em>Cells</em>, 2026); anti-HER2 bispecific antibody work at MSU &mdash; SPR characterization and plant-based expression (<em>Sci Rep</em>, 2019)</p>
         </div>
         <div class="expertise-card fade-up">
           <div class="expertise-icon">💊</div>
-          <h3>Pharma BD &amp; Innovation</h3>
-          <p>3&times; 1st-place BioMed X programs (Servier &times;2, Daiichi Sankyo); currently co-authoring the Autoimmune Fund&rsquo;s first full-field autoimmunity market thesis for a US VC</p>
+          <h3>Pharma Innovation</h3>
+          <p>Three intensive BioMed X innovation programs (Servier &times;2, Daiichi Sankyo &times;1); 1st-place team in each; pitched concepts to pharma R&amp;D leadership in Heidelberg and Paris</p>
+        </div>
+        <div class="expertise-card fade-up">
+          <div class="expertise-icon">🔍</div>
+          <h3>Diligence &amp; Strategy</h3>
+          <p>Scientific and IP due diligence for a corporate venture arm (PitchBook, Derwent Innovation, Mintel, Web of Science); currently contributing scientific research to a US VC&rsquo;s autoimmunity market thesis</p>
         </div>
         <div class="expertise-card fade-up">
           <div class="expertise-icon">🚀</div>
-          <h3>Biotech Entrepreneurship</h3>
-          <p>Synaptiflora (AI microbiome, AWS grant, team of 5, provisional patent); Autoboom BD (few thousand &rarr; 150,000+ clients, 5+ partnerships); stealth medtech Netherlands</p>
+          <h3>Ventures &amp; BD</h3>
+          <p>Founded Synaptiflora (AI microbiome &mdash; team of five, provisional patent, AWS grant); co-founded PastEcho (digital health, Netherlands); owned the BD function at an AI-powered B2B platform</p>
         </div>
         <div class="expertise-card fade-up">
           <div class="expertise-icon">🤖</div>
-          <h3>AI &amp; Drug Discovery</h3>
-          <p>Agentic Python pipelines; TrialSense clinical intelligence platform (575k+ trials, ML, NLP); conceptually fluent in AlphaFold, ESM2, generative biologics design</p>
+          <h3>AI &amp; Computation</h3>
+          <p>Python and agentic pipelines; TrialSense clinical-intelligence platform; BenchPilot lab-experiment agent; ML for omics data; docking and homology modeling; working knowledge of AlphaFold and ESM2</p>
         </div>
         <div class="expertise-card fade-up">
           <div class="expertise-icon">🧪</div>
           <h3>Clinical Research</h3>
-          <p>GCP certified (NIH/NIDA, 2025&ndash;2027); ACRP Clinical Trial Monitoring &amp; QMS; protocol development, risk-based decisions, site budgeting &amp; negotiation</p>
-        </div>
-        <div class="expertise-card fade-up">
-          <div class="expertise-icon">📊</div>
-          <h3>Strategy &amp; Diligence</h3>
-          <p>Scientific &amp; IP due diligence (PitchBook, Derwent Innovation); therapeutic-area evidence packages; competitive landscape mapping for pharma and VC audiences</p>
+          <p>GCP certified (NIH/NIDA, 2025&ndash;2027); ACRP training in clinical trial monitoring, quality management systems, protocol development &amp; feasibility, and Form FDA 1572</p>
         </div>
       </div>
     </div>
@@ -114,323 +139,464 @@ My background combines scientific depth with business execution: three 1st-place
   <!-- ========== EXPERIENCE ========== -->
   <section id="experience" class="section-dark">
     <div class="container">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title" data-num="02">Experience</h2>
 
       <div class="experience-tabs" role="tablist">
-        <button class="tab-btn active" data-tab="projects" role="tab" aria-selected="true">Side Projects</button>
-        <button class="tab-btn" data-tab="research" role="tab" aria-selected="false">Research</button>
-        <button class="tab-btn" data-tab="bdinnovation" role="tab" aria-selected="false">BD &amp; Innovation</button>
-        <button class="tab-btn" data-tab="startups" role="tab" aria-selected="false">Startups</button>
-        <button class="tab-btn" data-tab="labindustrial" role="tab" aria-selected="false">Lab &amp; Industrial</button>
-        <button class="tab-btn" data-tab="investment" role="tab" aria-selected="false">Investment</button>
+        <button class="tab-btn active" data-tab="research" role="tab" aria-selected="true">Research</button>
+        <button class="tab-btn" data-tab="bd" role="tab" aria-selected="false">BD &amp; Pharma Innovation</button>
+        <button class="tab-btn" data-tab="diligence" role="tab" aria-selected="false">Diligence &amp; Strategy</button>
+        <button class="tab-btn" data-tab="ventures" role="tab" aria-selected="false">Ventures</button>
+        <button class="tab-btn" data-tab="earlylab" role="tab" aria-selected="false">Early Lab Roles</button>
       </div>
 
       <div class="tab-content">
 
-        <!-- Side Projects -->
-        <div class="tab-panel active" id="tab-projects" role="tabpanel">
-          <div class="experience-item fade-up">
-            <div class="exp-header">
-              <div>
-                <h3>LinkedIn Newsletter &mdash; Pharma &amp; AI in Drug Discovery</h3>
-                <span class="exp-org">Self-published &middot; <a href="https://www.linkedin.com/in/lipskerov" target="_blank" rel="noopener" style="color:var(--accent)">linkedin.com/in/lipskerov</a></span>
-              </div>
-              <span class="exp-date">Ongoing</span>
-            </div>
-            <ul class="exp-list">
-              <li><strong style="color: var(--accent)">54,671 impressions in last 28 days</strong> from organic content</li>
-              <li>Three scientific-business posts weekly: pharma landscape, novel science, AI in drug discovery</li>
-              <li>Audience spans HCPs, BD professionals, and pharma R&amp;D leaders</li>
-              <li>Built a custom agentic news-digest pipeline in Python to source, distill, and prioritize content</li>
-              <li>Deliberate post-strategy with hooks, lead magnets, and audience-tailored framing</li>
-            </ul>
-          </div>
-          <div class="experience-item fade-up">
-            <div class="exp-header">
-              <div>
-                <h3>TrialSense &mdash; Clinical Trial Intelligence Platform</h3>
-                <span class="exp-org">Solo-built, full-stack</span>
-              </div>
-            </div>
-            <p class="exp-desc">Clinical intelligence infrastructure for asset diligence, sponsor benchmarking, and competitive landscape mapping.</p>
-            <ul class="exp-list">
-              <li>Ingested 575,000+ ClinicalTrials.gov trials and 120,000 PubMed abstracts</li>
-              <li>ML trial-completion prediction model; meta-analysis engine with forest plots</li>
-              <li>Sponsor explorer, clinical-NLP outcome extraction, probability-of-success scoring</li>
-              <li>Designed for asset diligence, sponsor benchmarking, and competitive landscape analysis</li>
-            </ul>
-          </div>
-          <div class="experience-item fade-up">
-            <h3 style="margin-bottom:1.25rem; color:var(--text-primary)">Selected GitHub Projects</h3>
-            <div style="display:grid; gap:1rem;">
-              <div style="background:var(--surface-2,#1a2236); border:1px solid var(--border,#2a3650); border-radius:10px; padding:1.1rem 1.3rem;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap;">
-                  <div>
-                    <a href="https://github.com/Lipskerov/BiotechDigestCreator" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600; font-size:0.97rem; text-decoration:none;">BiotechDigestCreator</a>
-                    <p style="color:var(--text-secondary,#8892a4); font-size:0.88rem; margin:0.3rem 0 0;">Agentic terminal pipeline that scrapes and synthesizes daily biotech &amp; pharma news digests; powers the LinkedIn content strategy</p>
-                  </div>
-                  <span style="background:var(--accent-dim,rgba(99,179,237,0.12)); color:var(--accent); font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:999px; white-space:nowrap;">Python &middot; Agentic</span>
-                </div>
-              </div>
-              <div style="background:var(--surface-2,#1a2236); border:1px solid var(--border,#2a3650); border-radius:10px; padding:1.1rem 1.3rem;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap;">
-                  <div>
-                    <a href="https://github.com/Lipskerov/Graph-Convolutional-Network-for-Solubility-Prediction" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600; font-size:0.97rem; text-decoration:none;">GCN for Solubility Prediction</a>
-                    <p style="color:var(--text-secondary,#8892a4); font-size:0.88rem; margin:0.3rem 0 0;">Graph Convolutional Network model for predicting molecular solubility from SMILES &mdash; applied GNN approach to a core drug-discovery property</p>
-                  </div>
-                  <span style="background:var(--accent-dim,rgba(99,179,237,0.12)); color:var(--accent); font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:999px; white-space:nowrap;">Python &middot; GNN &middot; Drug Discovery</span>
-                </div>
-              </div>
-              <div style="background:var(--surface-2,#1a2236); border:1px solid var(--border,#2a3650); border-radius:10px; padding:1.1rem 1.3rem;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap;">
-                  <div>
-                    <a href="https://github.com/Lipskerov/microbiome" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600; font-size:0.97rem; text-decoration:none;">Microbiome ML Models</a>
-                    <p style="color:var(--text-secondary,#8892a4); font-size:0.88rem; margin:0.3rem 0 0;">ML pipelines for 16S rRNA and metagenomic data — taxonomic profiling, clinical-relevance scoring; developed as part of the Synaptiflora venture</p>
-                  </div>
-                  <span style="background:var(--accent-dim,rgba(99,179,237,0.12)); color:var(--accent); font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:999px; white-space:nowrap;">Python &middot; Bioinformatics &middot; ML</span>
-                </div>
-              </div>
-            </div>
-            <div style="margin-top:1rem;">
-              <a href="https://github.com/Lipskerov" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.88rem;">View all on GitHub</a>
-            </div>
-          </div>
-        </div>
-
         <!-- Research -->
-        <div class="tab-panel" id="tab-research" role="tabpanel">
+        <div class="tab-panel active" id="tab-research" role="tabpanel">
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
-                <h3>PhD &mdash; Molecular Biology / Biochemistry</h3>
-                <span class="exp-org">Technion Faculty of Medicine &mdash; Ciechanover Lab (Nobel Laureate)</span>
+                <h3>PhD Researcher &mdash; Molecular Biology / Biochemistry</h3>
+                <span class="exp-org">Technion &ndash; Israel Institute of Technology, Faculty of Medicine &middot; Ciechanover Lab</span>
               </div>
-              <span class="exp-date">2022 &ndash; 2026 (completed)</span>
+              <span class="exp-date">2022 &ndash; 2026</span>
             </div>
-            <p class="exp-desc"><em>Thesis:</em> Precise Mapping of the Proteasome Interaction Region of p62/SQSTM1 &mdash; Decoupling Condensate Formation from Proteasome Recruitment</p>
+            <p class="exp-desc"><em>Thesis:</em> Precise Mapping of the Proteasome Interaction Region of p62/SQSTM1 &mdash; Decoupling Condensate Formation from Proteasome Recruitment. Supervised by Prof. Aaron Ciechanover (Nobel Laureate in Chemistry, 2004).</p>
             <ul class="exp-list">
-              <li>Engineered domain-specific p62/SQSTM1 mutant panels; mapped the Proteasome Interaction Region (PIR)</li>
-              <li>Decoupled liquid&ndash;liquid phase separation (LLPS) from proteasome recruitment &mdash; mechanistic separation of two distinct p62 functions</li>
-              <li>Confocal and super-resolution fluorescence microscopy &mdash; live-cell and fixed-sample imaging, condensate dynamics, quantitative image analysis</li>
-              <li>Co-immunoprecipitation, CHX-chase degradation assays, in-cell proteasome activity assays</li>
-              <li>AI-driven structural modeling, homology and docking analyses, computational validation of mutagenesis design</li>
-              <li>First-author paper in <em>Cells</em> (2026); supervised by Nobel Laureate Prof. Aaron Ciechanover</li>
+              <li>Engineered systematic deletion and point-mutant panels of p62/SQSTM1 to map the Proteasome Interaction Region (PIR) down to a six-residue stretch within the PB1 domain</li>
+              <li>Showed that losing the PIR selectively disrupts proteasome recruitment into p62 condensates while leaving liquid&ndash;liquid phase separation (LLPS) intact &mdash; separating two functions previously bundled together</li>
+              <li>Confocal and super-resolution fluorescence microscopy: live-cell and fixed-sample imaging, condensate dynamics, quantitative image analysis</li>
+              <li>Co-immunoprecipitation, cycloheximide-chase degradation assays, and in-cell proteasome activity assays</li>
+              <li>Structural modeling, homology and docking analyses used to guide and rationalize the mutagenesis design</li>
+              <li>Published as first author in <em>Cells</em> (2026) &mdash; <a href="https://doi.org/10.3390/cells15040335" target="_blank" rel="noopener" class="inline-link">doi.org/10.3390/cells15040335</a></li>
             </ul>
           </div>
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
-                <h3>Research Scientist</h3>
-                <span class="exp-org">Vavilov Institute of General Genetics, Moscow</span>
+                <h3>Researcher &mdash; Protein Engineering &amp; Biologics</h3>
+                <span class="exp-org">A.N. Belozersky Institute of Physico-Chemical Biology, Moscow State University &middot; with the Vavilov Institute of General Genetics</span>
               </div>
-              <span class="exp-date">2016 &ndash; 2022</span>
+              <span class="exp-date">2015 &ndash; 2022</span>
             </div>
             <ul class="exp-list">
-              <li>Engineered, tested, and contributed to production of a published anti-HER2 bispecific biosimilar platform (trastuzumab + pertuzumab) for oncology applications</li>
-              <li>Full preclinical workflow: molecular design &rarr; binding validation &rarr; functional cytotoxicity assays &rarr; in vivo efficacy in HER2+ breast cancer models</li>
-              <li>Surface Plasmon Resonance (SPR) for affinity and kinetic characterization vs. originator molecules</li>
-              <li>Developed and optimized humanized plant-based expression systems for bispecific antibody production</li>
-              <li>High-throughput screening (HTS) robotics for biologics expression-system evaluation and assay development</li>
-              <li>Published in <em>Scientific Reports</em> (Nature) &mdash; bispecific trastuzumab/pertuzumab biosimilar platform (2019)</li>
-              <li>Also contributed to formaldehyde metabolism research (published in <em>Int. J. Mol. Sciences</em>, 2022)</li>
+              <li>Contributed to a published anti-HER2 bispecific biosimilar platform (trastuzumab + pertuzumab) for oncology &mdash; co-author on the resulting <em>Scientific Reports</em> paper</li>
+              <li>Worked across the preclinical workflow: molecular design, binding validation, functional cytotoxicity assays, and in vivo efficacy testing in HER2+ breast cancer models</li>
+              <li>Surface Plasmon Resonance (SPR) for affinity and kinetic characterization against originator molecules</li>
+              <li>Developed and optimized plant-based (<em>N. benthamiana</em>) transient expression systems for bispecific antibody production, including the effect of nuclear localization signals on expression yield</li>
+              <li>Operated high-throughput screening robotics for expression-system evaluation and assay development</li>
+              <li>First-author review on formaldehyde measurement across biological samples, cells, and organisms (<em>IJMS</em>, 2022)</li>
             </ul>
           </div>
         </div>
 
-        <!-- BD & Innovation -->
-        <div class="tab-panel" id="tab-bdinnovation" role="tabpanel">
+        <!-- BD & Pharma Innovation -->
+        <div class="tab-panel" id="tab-bd" role="tabpanel">
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
-                <h3>Pharma Innovation Programs</h3>
-                <span class="exp-org">BioMed X Institute &mdash; Servier (&times;2) &middot; Daiichi Sankyo (&times;1)</span>
+                <h3>Scientific Innovator &mdash; Pharma Innovation Programs</h3>
+                <span class="exp-org">BioMed X Institute &middot; Servier (&times;2, Heidelberg &amp; Paris) &middot; Daiichi Sankyo (&times;1, Heidelberg)</span>
               </div>
-              <span class="exp-date">2022 &ndash; 2025</span>
+              <span class="exp-date">2024 &ndash; 2025</span>
             </div>
-            <p class="exp-desc"><strong style="color: var(--accent)">1st place team across all three programs &mdash; ~$1M/year follow-on funding secured per win</strong>, seeding internal pharma R&amp;D teams.</p>
+            <p class="exp-desc">Three competitive, month-long innovation bootcamps run by BioMed X with pharma partners. <strong class="hl">My team placed 1st in all three.</strong></p>
             <ul class="exp-list">
-              <li><strong>Daiichi Sankyo (oncology):</strong> contributed to design of a peptide-based bispecific biologics platform for solid-tumor targeting; co-owned scientific architecture and competitive positioning</li>
-              <li><strong>Servier &mdash; program 1 (oncology):</strong> AI-driven bispecific antibody design strategy and target identification; computational platform fluency directly relevant to GenAI/LLM-based discovery</li>
-              <li><strong>Servier &mdash; program 2 (autoimmune):</strong> contributed diagnostic and therapeutic platform concepts for autoimmune disease</li>
-              <li>Pitched directly to senior pharma R&amp;D, leadership at Daiichi Sankyo (Japan) and Servier (Europe)</li>
-              <li>Converted technical concepts into decision-ready cases</li>
+              <li><strong>Servier &mdash; autoimmunity (Apr 2024, Heidelberg):</strong> co-developed a diagnostic platform concept for autoimmune disease; explored scientific feasibility, clinical need, and development pathways. Team awarded 1st place for scientific feasibility</li>
+              <li><strong>Daiichi Sankyo &mdash; oncology (May 2025, Heidelberg):</strong> contributed to the scientific concept and strategy for a peptide-based bispecific biologics platform targeting solid tumors; helped design the in silico, in vitro, and in vivo validation approach</li>
+              <li><strong>Servier &mdash; next-gen AI platforms (Nov 2025, Paris):</strong> developed a computational strategy for predicting dual-epitope engagement in bispecific antibody engineering; contributed scientific modeling and concept development</li>
+              <li>Presented final pitches directly to senior pharma R&amp;D leadership; worked in international, interdisciplinary teams mentored by pharma scientists</li>
+              <li>Core skill practised throughout: turning a technical concept into a decision-ready case for people who fund it</li>
             </ul>
           </div>
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
                 <h3>Business Development Manager</h3>
-                <span class="exp-org">Autoboom &mdash; AI-Powered B2B Platform</span>
+                <span class="exp-org">Autoboom &mdash; AI-powered B2B platform</span>
               </div>
               <span class="exp-date">2024 &ndash; 2025</span>
             </div>
+            <p class="exp-desc">First BD hire responsibilities: owned the function end to end rather than a single stage of it.</p>
             <ul class="exp-list">
-              <li>Owned the full BD function: inbound and outbound pipeline, customer-facing partner negotiation, and deal closing</li>
-              <li><strong style="color: var(--accent)">Grew active client base from a few thousand to 150,000+</strong> and signed 5+ strategic partnership agreements</li>
-              <li>Built an agentic outbound system N8N (chatgpt / claude / Apollo / Apify / Phantom Buster ) &mdash; automated lead qualification, ICP scoring, multi-step outreach, and CRM updates; cut manual pipeline overhead ~60%</li>
+              <li>Owned inbound and outbound pipeline, customer-facing partner negotiation, and deal closing</li>
+              <li>Signed 5+ strategic partnership agreements and grew the active client base substantially over the engagement</li>
+              <li>Built an agentic outbound system on n8n (Claude / GPT, Apollo, Apify, PhantomBuster) for lead qualification, ICP scoring, multi-step outreach sequencing, and CRM updates &mdash; removing most of the manual pipeline work</li>
+              <li>Learned the commercial motion from the operator side: qualification, objection handling, pricing conversations, and follow-through</li>
             </ul>
           </div>
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
-                <h3>AION Labs AI Drug Discovery Bootcamp</h3>
-                <span class="exp-org">Pfizer &middot; AstraZeneca &middot; Teva &middot; Merck &middot; Amazon &middot; BioMed X &middot; Israel Innovation Authority</span>
+                <h3>Co-Founder Candidate &mdash; AI Drug Discovery Bootcamp</h3>
+                <span class="exp-org">AION Labs &middot; Pfizer &middot; AstraZeneca &middot; Teva &middot; Merck &middot; Amazon &middot; BioMed X &middot; Israel Innovation Authority</span>
               </div>
-              <span class="exp-date">2023</span>
+              <span class="exp-date">Jun 2023</span>
             </div>
             <ul class="exp-list">
-              <li>Selected for AION Labs&rsquo; competitive program (joint venture spanning leading global pharma and tech)</li>
-              <li>Contributed frameworks for AI-driven druggable protein-pocket prediction and E3-ligase / molecular-glue identification for targeted protein degradation</li>
+              <li>Selected for AION Labs&rsquo; competitive co-founder program, a joint venture spanning global pharma and tech</li>
+              <li>Contributed to machine-learning strategies for predicting E3 ligase &ndash; molecular glue &ndash; protein-of-interest triads for targeted protein degradation</li>
+              <li>Contributed frameworks for AI-driven druggable protein-pocket prediction</li>
+              <li>Helped present the final pitch to pharma executives; collaborated with computational biologists and pharma mentors</li>
             </ul>
           </div>
         </div>
 
-        <!-- Startups -->
-        <div class="tab-panel" id="tab-startups" role="tabpanel">
+        <!-- Diligence & Strategy -->
+        <div class="tab-panel" id="tab-diligence" role="tabpanel">
+          <div class="experience-item fade-up">
+            <div class="exp-header">
+              <div>
+                <h3>Contributing Researcher &mdash; Scientific Lane</h3>
+                <span class="exp-org">The Autoimmune Fund (US) &mdash; <em>The Immune Decade: 2026 Report</em></span>
+              </div>
+              <span class="exp-date">2026 &ndash; present</span>
+            </div>
+            <p class="exp-desc">Independent contractor contributing scientific research to the fund&rsquo;s first published market thesis across the autoimmunity field.</p>
+            <ul class="exp-list">
+              <li>Coverage spanning therapeutics, diagnostics, bioelectric medicine, AI immune mapping, women&rsquo;s health, and longevity investing</li>
+              <li>Scientific diligence work: literature review, company profiling, evidence-package development, convergence scoring, and source verification of biological and clinical claims</li>
+              <li>Translating mechanism, comparator landscape, and clinical-relevance detail into investor-grade scientific narrative</li>
+              <li>KOL engagement &mdash; structured interviews with Prof. Raanan Shamir (Schneider Children&rsquo;s Medical Center), Prof. Alessio Fasano (Massachusetts General Hospital), and Prof. Detlef Schuppan (Mainz)</li>
+              <li>Emphasis on mechanism strength, molecular subtyping, and what those imply for autoimmune investing</li>
+            </ul>
+          </div>
+          <div class="experience-item fade-up">
+            <div class="exp-header">
+              <div>
+                <h3>Associate &mdash; Biotech &amp; FoodTech Startup Screening</h3>
+                <span class="exp-org">EFKO Group &mdash; corporate venture and strategic investment</span>
+              </div>
+              <span class="exp-date">Mar 2021 &ndash; Dec 2022</span>
+            </div>
+            <p class="exp-desc">Corporate-venture screening role covering both investment and technology-acquisition decisions.</p>
+            <ul class="exp-list">
+              <li>Analysed early- and growth-stage biotech and life-science companies, with a focus on cultured meat &mdash; cell culture technology for muscle fibre and nutritional components</li>
+              <li>Patent and IP analysis to identify intellectual property trends and white space in the field</li>
+              <li>Reviewed and synthesized scientific literature to judge how genuinely novel a startup&rsquo;s claim was</li>
+              <li>Evaluated economic data to assess viability, growth potential, and strategic fit; built competitive landscape analyses</li>
+              <li>Worked across Web of Science, Derwent Innovation, PitchBook, and Mintel</li>
+              <li>Fed market and technology-trend analysis into strategic decision-making with R&amp;D and finance teams</li>
+            </ul>
+          </div>
+          <div class="experience-item fade-up">
+            <div class="exp-header">
+              <div>
+                <h3>Diligence Tooling &mdash; Built For My Own Workflow</h3>
+              </div>
+            </div>
+            <ul class="exp-list">
+              <li><strong>TrialSense:</strong> ingested 575,000+ ClinicalTrials.gov trials and ~120,000 PubMed abstracts to support asset diligence, sponsor benchmarking, and competitive landscape mapping</li>
+              <li><strong>TBI knowledge graph:</strong> structured 2,679 traumatic brain injury diagnostic papers to test the NQO2/QR2 pathway as a blood-biomarker entry point</li>
+              <li><strong>BiotechDigestCreator:</strong> agentic pipeline that scrapes and synthesizes daily biotech and pharma news, keeping landscape awareness current</li>
+              <li>See the <a href="#portfolio" class="inline-link">Portfolio</a> section for details and source code</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ventures -->
+        <div class="tab-panel" id="tab-ventures" role="tabpanel">
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
                 <h3>Founder &amp; Scientific Lead</h3>
-                <span class="exp-org">Synaptiflora &mdash; AI Microbiome Intelligence Platform (Israel)</span>
+                <span class="exp-org">Synaptiflora &mdash; AI microbiome intelligence platform (Israel)</span>
               </div>
               <span class="exp-date">2023 &ndash; 2025</span>
             </div>
             <ul class="exp-list">
               <li>Founded an AI-driven microbiome venture focused on the gut&ndash;disease axis (colorectal cancer, dysbiosis); built and led a team of five scientists</li>
-              <li>Provisional patent filed; secured AWS grant for cloud and computational development</li>
+              <li>Filed a provisional patent and secured an AWS grant for cloud and computational development</li>
               <li>Designed bioinformatic and ML pipelines for 16S rRNA and shotgun metagenomic data &mdash; QC, taxonomic profiling, and clinical-relevance interpretation</li>
-              <li>Built R&amp;D relationships across global pharma and academic centers: Servier &middot; Merck &middot; Teva &middot; Novo Nordisk &middot; Rambam Health Care Campus &middot; Zurich University Hospital &middot; IBM Research Israel &middot; Cleveland Clinic Microbiome &middot; Tel Aviv University &middot; Technion</li>
-              <li>Built investor narrative and pitch materials; engaged accelerators and VC networks</li>
+              <li>Built the investor narrative and pitch materials; engaged accelerators and VC networks</li>
+              <li>Ran collaboration and feedback conversations with academic and pharma R&amp;D groups across Israel, Europe, and the US</li>
             </ul>
           </div>
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
-                <h3>Founder &mdash; Stealth MedTech Startup</h3>
-                <span class="exp-org">Digital Health for Dementia (Netherlands)</span>
+                <h3>Co-Founder</h3>
+                <span class="exp-org">PastEcho &mdash; digital health for dementia care (Netherlands)</span>
               </div>
-              <span class="exp-date">2022 &ndash; 2023</span>
+              <span class="exp-date">Feb 2023 &ndash; Oct 2024</span>
             </div>
             <ul class="exp-list">
-              <li>Founded a stealth-mode medtech venture building a digital tool for dementia patients</li>
-              <li>Led product vision, scientific framing, regulatory positioning, and pilot strategy</li>
-              <li>Closed a partnership with a Dutch nursing-home network; ran an end-user pilot with elderly patients and care staff</li>
-              <li>Sole technical and clinical lead &mdash; regulatory framing, end-user research, EU healthcare-system navigation</li>
+              <li>Co-founded a venture designing an AI platform that translates speech and facial cues into emotional-state maps, so carers can respond to dementia patients earlier and better</li>
+              <li>Conducted field research in elderly care homes, working directly with physicians, nurses, and caregivers on interaction and empathy loops</li>
+              <li>Ran an end-user pilot with elderly patients and care staff through a Dutch nursing-home partnership</li>
+              <li>Led the scientific framing, regulatory positioning, and pilot strategy; navigated the EU healthcare-system context</li>
             </ul>
           </div>
         </div>
 
-        <!-- Lab & Industrial -->
-        <div class="tab-panel" id="tab-labindustrial" role="tabpanel">
+        <!-- Early Lab Roles -->
+        <div class="tab-panel" id="tab-earlylab" role="tabpanel">
+          <p class="panel-note">Earlier hands-on roles from the start of my career. Listed for the bench and QC skills they built, at the scope they actually had.</p>
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
-                <h3>Senior Clinician</h3>
-                <span class="exp-org">Regional Veterinary Diagnostic Laboratory &mdash; Microbiology, Pathology, IHC, qPCR Divisions</span>
+                <h3>Biotechnology Intern &mdash; Industrial Enzyme Production</h3>
+                <span class="exp-org">EFKO Group &mdash; phospholipase enzyme plant</span>
               </div>
-              <span class="exp-date">2018 &ndash; 2020</span>
+              <span class="exp-date">Mar &ndash; Jul 2021</span>
             </div>
             <ul class="exp-list">
-              <li>High-throughput regional pathology lab; oversaw 4&ndash;6 technicians</li>
-              <li>Hands-on microbiology bench: bacterial and fungal culturing on selective and differential media, plating, isolation, identification, biochemical and morphological characterization, antibiotic susceptibility testing, contamination control under strict aseptic technique</li>
-              <li>Multi-section oversight: processed clinical samples (blood, urine, fecal, swabs, tissues) across microbiology, IHC/pathology, qPCR, hematology, and biochemistry</li>
-              <li>Equipment &amp; vendor management: maintenance schedules, troubleshooting, inventory, and supplier coordination</li>
-              <li>Operated under formal QC framework; trained technicians on SOPs; contributed to protocol updates and corrective action</li>
-              <li>Integrated laboratory data with clinical case notes for treatment decisions; maintained sample chain-of-custody</li>
+              <li>Advanced training across the full production chain: on-site laboratory, small bioreactors, and full-scale enzyme production</li>
+              <li>Worked on modifying yeast expression systems for more cost-effective production of a food-industry enzyme</li>
+              <li>Gained practical understanding of how biotechnological production actually runs day to day, including QC checkpoints and batch consistency</li>
+              <li>Later complemented by DTU MSc-level coursework in fermentation-based biomanufacturing (bioreactor design, scale-up, process control)</li>
             </ul>
           </div>
           <div class="experience-item fade-up">
             <div class="exp-header">
               <div>
-                <h3>QC Scientist &mdash; Industrial Biotech Division</h3>
-                <span class="exp-org">EFKO Group &mdash; Phospholipase Enzyme Plant</span>
+                <h3>Doctor&rsquo;s Laboratory Assistant &mdash; Veterinary Diagnostics</h3>
+                <span class="exp-org">NeoVet, Moscow</span>
               </div>
-              <span class="exp-date">2021 &ndash; 2022</span>
+              <span class="exp-date">Nov 2018 &ndash; Aug 2019</span>
             </div>
             <ul class="exp-list">
-              <li>Industrial fermentation contamination control: microbiological QC on yeast-based enzyme production line &mdash; environmental and surface monitoring, contamination identification and root-cause investigation</li>
-              <li>Strain development &amp; optimization: developed and optimized yeast strains for industrial-scale phospholipase enzyme production via iterative DOE-style experiments</li>
-              <li>Process scale-up: drove transition from R&amp;D bench to large-scale GMP production &mdash; fermentation parameters, growth-media composition, downstream conditions</li>
-              <li>Designed QC assays for enzyme activity, expression levels, batch reproducibility, and product stability; established release criteria and tracked batch-to-batch variability</li>
+              <li>Animal blood and biomaterial sampling techniques</li>
+              <li>Complete blood counts and blood biochemistry panels</li>
+              <li>Detailed microscopy of urine and faeces; identification of parasite species</li>
+              <li>ELISA for diagnostic purposes</li>
+              <li>Built the habits that matter later: aseptic handling, sample chain-of-custody, and reading a result against the clinical picture rather than in isolation</li>
             </ul>
           </div>
-        </div>
-
-        <!-- Investment -->
-        <div class="tab-panel" id="tab-investment" role="tabpanel">
-          <div class="experience-item fade-up">
-            <div class="exp-header">
-              <div>
-                <h3>Founding Research Fellow &mdash; Scientific Lane</h3>
-                <span class="exp-org">The Autoimmune Fund (US) &mdash; <em>The Immune Decade: 2026 Report</em></span>
-              </div>
-              <span class="exp-date">2026 &ndash; present</span>
-            </div>
-            <p class="exp-desc">Co-authoring the fund&rsquo;s first published market thesis across the entire autoimmunity field.</p>
-            <ul class="exp-list">
-              <li>Coverage spanning therapeutics, diagnostics, bioelectric medicine, AI immune mapping, women&rsquo;s health, and longevity investing</li>
-              <li>Scientific diligence, literature review, company profiling, evidence-package development, convergence scoring, and source verification across biological and clinical claims</li>
-              <li>Translating complex mechanism, comparator-landscape, and clinical-relevance content into investor-grade scientific narratives</li>
-              <li>KOL engagement: structured interviews with Prof. Raanan Shamir (Schneider Children&rsquo;s Medical Center), Prof. Alessio Fasano (MGH), Prof. Detlef Schuppan (Mainz)</li>
-              <li>Emphasis on mechanism strength, molecular subtyping, and strategic implications for autoimmune investing</li>
-              <li>Independent contractor; named section-level attribution negotiated; engagement initiated by Bonnie Feldman</li>
-            </ul>
-          </div>
-          <div class="experience-item fade-up">
-            <div class="exp-header">
-              <div>
-                <h3>VC Associate / Startup Analyst</h3>
-                <span class="exp-org">EFKO Group &mdash; Corporate Venture &amp; Strategic Investment</span>
-              </div>
-              <span class="exp-date">2021 &ndash; 2022</span>
-            </div>
-            <ul class="exp-list">
-              <li>Full-cycle corporate-venture role: screened early- and growth-stage biotech and life-science companies for both investment AND technology acquisition</li>
-              <li>Scientific and IP due diligence using PitchBook, Derwent Innovation, Mintel, and Web of Science</li>
-              <li>Built competitive landscape analyses and valuation models</li>
-              <li>Trained in deal mechanics: term sheets, cap-table analysis, valuation, and investment vs. acquisition decision frameworks</li>
-            </ul>
-          </div>
-
         </div>
 
       </div><!-- end tab-content -->
     </div>
   </section>
 
-  <!-- ========== SKILLS ========== -->
-  <section id="skills">
+  <!-- ========== PORTFOLIO ========== -->
+  <section id="portfolio">
     <div class="container">
-      <h2 class="section-title">Core Technical Skills</h2>
+      <h2 class="section-title" data-num="03">Portfolio</h2>
+      <p class="about-lead">
+        Things I&rsquo;ve built outside of formal roles &mdash; mostly to answer a question faster than I could by hand,
+        or to make a scientific workflow less painful. Source code or a live demo for each.
+      </p>
+
+      <div class="project-grid">
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">BenchPilot</h3>
+            <span class="project-badge live">Live demo</span>
+          </div>
+          <p class="project-desc">
+            An evidence-grounded AI co-worker for the bench. You ask a scientific question; it proposes hypotheses
+            and an experiment plan, drafts a protocol, checks reagent stock, and surfaces the papers and trials
+            behind each suggestion. Includes a knowledge-graph tab for link prediction. Demo case study runs on
+            triple-negative breast cancer and PD-L1 dynamics.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">AI Agent</span>
+            <span class="project-tag">Lab Operations</span>
+            <span class="project-tag">IBM Bob</span>
+            <span class="project-tag">Knowledge Graph</span>
+          </div>
+          <div class="project-links">
+            <a href="benchpilot/" class="project-link">Open the demo &rarr;</a>
+            <a href="https://github.com/Lipskerov/benchpilot" target="_blank" rel="noopener" class="project-link">Source</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">TrialSense</h3>
+            <span class="project-badge">Private repo</span>
+          </div>
+          <p class="project-desc">
+            Clinical trial intelligence platform built solo, full-stack, for asset diligence and competitive
+            landscape work. Ingests 575,000+ ClinicalTrials.gov trials and ~120,000 PubMed abstracts, then layers
+            on an ML trial-completion prediction model, a meta-analysis engine with forest plots, a sponsor
+            explorer, clinical-NLP outcome extraction, and probability-of-success scoring.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Machine Learning</span>
+            <span class="project-tag">Clinical NLP</span>
+            <span class="project-tag">Diligence</span>
+          </div>
+          <div class="project-links">
+            <span class="project-note">Walkthrough available on request</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">TBI Knowledge Graph</h3>
+          </div>
+          <p class="project-desc">
+            A knowledge graph over 2,679 traumatic brain injury diagnostic papers, centred on the NQO2/QR2 pathway
+            as a candidate entry point for a blood biomarker. Built to test whether a mechanistic hypothesis holds
+            up against the whole published literature rather than a hand-picked slice of it.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Knowledge Graph</span>
+            <span class="project-tag">Literature Mining</span>
+            <span class="project-tag">Biomarkers</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lipskerov/tbi-knowledge-graph" target="_blank" rel="noopener" class="project-link">Source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">BiotechDigestCreator</h3>
+          </div>
+          <p class="project-desc">
+            Agentic terminal pipeline that scrapes, distils, and prioritizes daily biotech and pharma news into a
+            digest. Built to keep my own landscape awareness current, and it now feeds the scientific writing I
+            publish on LinkedIn.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Agentic</span>
+            <span class="project-tag">News Synthesis</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lipskerov/BiotechDigestCreator" target="_blank" rel="noopener" class="project-link">Source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">GCN for Solubility Prediction</h3>
+          </div>
+          <p class="project-desc">
+            A graph convolutional network that predicts molecular solubility directly from SMILES strings &mdash;
+            applying a graph neural network to one of the properties that quietly kills drug candidates.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">GNN</span>
+            <span class="project-tag">Drug Discovery</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lipskerov/Graph-Convolutional-Network-for-Solubility-Prediction" target="_blank" rel="noopener" class="project-link">Source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">Microbiome ML Models</h3>
+          </div>
+          <p class="project-desc">
+            Machine learning pipelines for 16S rRNA and shotgun metagenomic data &mdash; quality control, taxonomic
+            profiling, and clinical-relevance scoring. Developed as part of the Synaptiflora venture.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Bioinformatics</span>
+            <span class="project-tag">Machine Learning</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lipskerov/microbiome" target="_blank" rel="noopener" class="project-link">Source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">FaceSpeak</h3>
+          </div>
+          <p class="project-desc">
+            A therapeutic face-muscle training game for children with cerebral palsy. Tracks six muscle channels
+            through the webcam and turns the exercises into two games, so repetitive therapy becomes something a
+            child will actually keep doing.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">MediaPipe</span>
+            <span class="project-tag">Digital Health</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lipskerov/FaceSpeak-v2" target="_blank" rel="noopener" class="project-link">Source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">LinkedIn Outreach Engine</h3>
+          </div>
+          <p class="project-desc">
+            Sources leads through Apollo and Apify, then writes personalized icebreakers rather than templated
+            spam. Packaged as a reusable skill plus script &mdash; the tooling behind the BD automation work.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">GTM Automation</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lipskerov/linkedin-outreach-engine" target="_blank" rel="noopener" class="project-link">Source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">Biotech CV Tailor</h3>
+          </div>
+          <p class="project-desc">
+            A skill and render script that tailors a clean, ATS-passing, one-page biotech CV to any job
+            description. Bring your own master profile; it does the matching and the typesetting.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Automation</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lipskerov/biotech-cv-tailor" target="_blank" rel="noopener" class="project-link">Source &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-head">
+            <h3 class="project-title">Scientific Writing on LinkedIn</h3>
+          </div>
+          <p class="project-desc">
+            Three posts a week on the pharma landscape, novel science, and AI in drug discovery, written for a
+            mixed audience of clinicians, BD professionals, and pharma R&amp;D. Sourced and prioritized using my own
+            agentic news pipeline. Reach in a representative 28-day window was roughly 55,000 impressions
+            (early 2026).
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Science Communication</span>
+            <span class="project-tag">Pharma Landscape</span>
+          </div>
+          <div class="project-links">
+            <a href="https://www.linkedin.com/in/lipskerov" target="_blank" rel="noopener" class="project-link">Read on LinkedIn &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="portfolio-cta">
+        <a href="https://github.com/Lipskerov" target="_blank" rel="noopener" class="btn btn-primary">View all repositories on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills" class="section-dark">
+    <div class="container">
+      <h2 class="section-title" data-num="04">Core Technical Skills</h2>
       <div class="skills-grid">
         <div class="skill-category fade-up">
           <h3>Molecular &amp; Cellular Biology</h3>
           <div class="skill-tags">
             <span class="tag">Mammalian Cell Culture</span>
             <span class="tag">Transfection &amp; Stable Lines</span>
-            <span class="tag">Flow Cytometry (FACS)</span>
             <span class="tag">Confocal Microscopy</span>
+            <span class="tag">Flow Cytometry (FACS)</span>
             <span class="tag">Western Blot</span>
             <span class="tag">Co-Immunoprecipitation</span>
-            <span class="tag">CHX Degradation Assays</span>
+            <span class="tag">CHX-Chase Degradation Assays</span>
             <span class="tag">Proteasome Activity Assays</span>
             <span class="tag">Cloning &amp; Mutagenesis</span>
             <span class="tag">qPCR / PCR</span>
-            <span class="tag">IVF &middot; FISH</span>
-          </div>
-        </div>
-        <div class="skill-category fade-up">
-          <h3>Microbiology &amp; Industrial</h3>
-          <div class="skill-tags">
-            <span class="tag">Bacterial &amp; Fungal Culturing</span>
-            <span class="tag">Aseptic Technique</span>
-            <span class="tag">Antibiotic Susceptibility Testing</span>
-            <span class="tag">Contamination Root-Cause (CAPA)</span>
-            <span class="tag">16S rRNA &amp; Metagenomic Analysis</span>
-            <span class="tag">Industrial Fermentation QC</span>
-            <span class="tag">R&amp;D-to-GMP Scale-Up</span>
-            <span class="tag">DOE / Statistical Process Control</span>
-            <span class="tag">SOP Authoring</span>
           </div>
         </div>
         <div class="skill-category fade-up">
@@ -439,9 +605,9 @@ My background combines scientific depth with business execution: three 1st-place
             <span class="tag">Bispecific Antibody Design</span>
             <span class="tag">SPR Affinity &amp; Kinetics</span>
             <span class="tag">Expression System Optimization</span>
-            <span class="tag">Plant-Based Expression</span>
+            <span class="tag">Plant-Based Transient Expression</span>
             <span class="tag">HTS Robotics</span>
-            <span class="tag">Peptide Biologics Design</span>
+            <span class="tag">Peptide Biologics Concepts</span>
             <span class="tag">In Vivo Breast Cancer Models</span>
             <span class="tag">Biosimilar Comparability</span>
           </div>
@@ -453,35 +619,49 @@ My background combines scientific depth with business execution: three 1st-place
             <span class="tag">Agentic Pipelines</span>
             <span class="tag">Clinical NLP</span>
             <span class="tag">ML for Omics Data</span>
+            <span class="tag">16S rRNA &amp; Metagenomics</span>
             <span class="tag">Homology Modeling &amp; Docking</span>
-            <span class="tag">AlphaFold / ESM2 (conceptual)</span>
-            <span class="tag">ClinicalTrials.gov / PubMed Mining</span>
+            <span class="tag">Graph Neural Networks</span>
+            <span class="tag">AlphaFold / ESM2 (working knowledge)</span>
+            <span class="tag">ClinicalTrials.gov &amp; PubMed Mining</span>
           </div>
         </div>
         <div class="skill-category fade-up">
-          <h3>BD &middot; Strategy &middot; Diligence</h3>
+          <h3>Business Development</h3>
           <div class="skill-tags">
-            <span class="tag">Executive Pitching</span>
-            <span class="tag">Pharma Innovation Programs</span>
-            <span class="tag">KOL / DOL Engagement</span>
-            <span class="tag">Scientific &amp; IP Due Diligence</span>
+            <span class="tag">Pipeline Ownership (Inbound &amp; Outbound)</span>
+            <span class="tag">Partner Negotiation &amp; Deal Closing</span>
+            <span class="tag">Executive &amp; R&amp;D Pitching</span>
+            <span class="tag">ICP Definition &amp; Lead Scoring</span>
+            <span class="tag">CRM Ownership</span>
+            <span class="tag">GTM Automation (n8n &middot; Apollo &middot; Apify)</span>
+            <span class="tag">Investor Narrative &amp; Pitch Materials</span>
+          </div>
+        </div>
+        <div class="skill-category fade-up">
+          <h3>Diligence &amp; Strategy</h3>
+          <div class="skill-tags">
+            <span class="tag">Scientific Due Diligence</span>
+            <span class="tag">Patent &amp; IP Landscape Analysis</span>
             <span class="tag">Competitive Landscape Mapping</span>
-            <span class="tag">PitchBook &middot; Derwent Innovation</span>
-            <span class="tag">Cap-Table &amp; Valuation Modeling</span>
-            <span class="tag">CRM Ownership &amp; Pipeline Management</span>
+            <span class="tag">Evidence-Package Development</span>
+            <span class="tag">KOL / DOL Interviews</span>
+            <span class="tag">Derwent Innovation &middot; PitchBook</span>
+            <span class="tag">Web of Science &middot; Mintel</span>
+            <span class="tag">Technology Acquisition Screening</span>
           </div>
         </div>
         <div class="skill-category fade-up">
           <h3>Clinical Research &amp; Quality</h3>
           <div class="skill-tags">
             <span class="tag">GCP &mdash; NIH/NIDA Certified</span>
-            <span class="tag">ACRP Trial Monitoring</span>
+            <span class="tag">ACRP Clinical Trial Monitoring</span>
             <span class="tag">Quality Management Systems</span>
             <span class="tag">Protocol Development &amp; Feasibility</span>
             <span class="tag">Risk-Based Decisions</span>
             <span class="tag">Site Budgeting &amp; Negotiation</span>
             <span class="tag">Form FDA 1572</span>
-            <span class="tag">CAPA &amp; QC Framework</span>
+            <span class="tag">Writing Effective SOPs</span>
           </div>
         </div>
       </div>
@@ -489,21 +669,21 @@ My background combines scientific depth with business execution: three 1st-place
   </section>
 
   <!-- ========== EDUCATION ========== -->
-  <section id="education" class="section-dark">
+  <section id="education">
     <div class="container">
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title" data-num="05">Education</h2>
       <div class="education-list">
 
         <div class="edu-item fade-up">
           <div class="edu-icon">🎓</div>
           <div class="edu-content">
-            <h3>PhD &mdash; Molecular Biology / Biochemistry (Protein Engineering &amp; Computational Biology)</h3>
+            <h3>PhD &mdash; Molecular Biology / Biochemistry</h3>
             <span class="edu-org">Technion &mdash; Israel Institute of Technology, Faculty of Medicine &middot; Ciechanover Lab</span>
-            <span class="edu-date">2022 &ndash; 2026 (completed)</span>
+            <span class="edu-date">2022 &ndash; 2026</span>
             <p class="edu-detail">Advisor: Prof. Aaron Ciechanover (Nobel Laureate in Chemistry, 2004)</p>
             <p class="edu-thesis">
               <em>Thesis:</em> Precise Mapping of the Proteasome Interaction Region of p62/SQSTM1 &mdash;
-              Decoupling Condensate Formation from Proteasome Recruitment &middot; First-author paper in <em>Cells</em> (2026)
+              Decoupling Condensate Formation from Proteasome Recruitment
             </p>
           </div>
         </div>
@@ -511,17 +691,25 @@ My background combines scientific depth with business execution: three 1st-place
         <div class="edu-item fade-up">
           <div class="edu-icon">🎓</div>
           <div class="edu-content">
-            <h3>MSc &mdash; Fundamental Chemistry / Biochemistry (Chemical Engineering track)</h3>
-            <span class="edu-org">Moscow State University (MSU) &mdash; with honors</span>
-            <p class="edu-detail">Cancer cell biology and biologics testing focus.</p>
+            <h3>MSc &mdash; Fundamental Chemistry / Biochemistry</h3>
+            <span class="edu-org">Lomonosov Moscow State University (MSU)</span>
+            <p class="edu-detail">Chemical engineering track, with a focus on cancer cell biology and biologics testing.</p>
           </div>
         </div>
 
         <div class="edu-item fade-up">
           <div class="edu-icon">🎓</div>
           <div class="edu-content">
-            <h3>BSc &mdash; Fundamental Chemistry / Biochemistry (Chemical Engineering track)</h3>
-            <span class="edu-org">Moscow State University (MSU) &mdash; with honors</span>
+            <h3>BSc &mdash; Fundamental Chemistry / Biochemistry</h3>
+            <span class="edu-org">Lomonosov Moscow State University (MSU)</span>
+          </div>
+        </div>
+
+        <div class="edu-item fade-up">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-content">
+            <h3>Molecular Biology and IVF</h3>
+            <span class="edu-org">University of Kent</span>
           </div>
         </div>
 
@@ -534,17 +722,18 @@ My background combines scientific depth with business execution: three 1st-place
           <div class="edu-item fade-up">
             <div class="edu-icon">📋</div>
             <div class="edu-content">
-              <h3>Clinical Research Certifications &mdash; ACRP &amp; NIH/NIDA</h3>
+              <h3>Clinical Research &mdash; ACRP &amp; NIH/NIDA</h3>
               <div class="skill-tags" style="margin-top:0.75rem;">
-                <span class="tag tag-dark">GCP &mdash; NIH/NIDA (Jun 2025 &ndash; Jun 2027)</span>
-                <span class="tag tag-dark">ACRP Clinical Trial Monitoring</span>
-                <span class="tag tag-dark">QMS Sites &amp; Sponsors</span>
+                <span class="tag tag-dark">Good Clinical Practice &mdash; NIH/NIDA (Jun 2025 &ndash; Jun 2027)</span>
+                <span class="tag tag-dark">Clinical Trial Monitoring</span>
+                <span class="tag tag-dark">QMS for Sites &amp; Sponsors</span>
                 <span class="tag tag-dark">Protocol Development &amp; Feasibility</span>
                 <span class="tag tag-dark">Risk-Based Decisions / QC</span>
                 <span class="tag tag-dark">Form FDA 1572</span>
                 <span class="tag tag-dark">Site Budgeting &amp; Negotiation</span>
                 <span class="tag tag-dark">Recruitment, Accrual &amp; Retention</span>
                 <span class="tag tag-dark">Writing Effective SOPs</span>
+                <span class="tag tag-dark">Clinical Trial Management Systems</span>
               </div>
             </div>
           </div>
@@ -552,8 +741,8 @@ My background combines scientific depth with business execution: three 1st-place
           <div class="edu-item fade-up">
             <div class="edu-icon">🏭</div>
             <div class="edu-content">
-              <h3>DTU MSc-level &mdash; Process Adaptation in Fermentation-Based Biomanufacturing (5 ECTS)</h3>
-              <p class="edu-detail">Bioreactor design, scale-up, on-line process control, downstream operations; MATLAB/Simulink for fermentation process simulation.</p>
+              <h3>DTU &mdash; Process Adaptation in Fermentation-Based Biomanufacturing (MSc level, 5 ECTS)</h3>
+              <p class="edu-detail">Bioreactor design, scale-up, on-line process control, and downstream operations; MATLAB/Simulink for fermentation process simulation.</p>
             </div>
           </div>
 
@@ -569,19 +758,19 @@ My background combines scientific depth with business execution: three 1st-place
             <div class="edu-icon">🤖</div>
             <div class="edu-content">
               <h3>AION Labs AI Drug Discovery Bootcamp (2023)</h3>
-              <p class="edu-detail">Competitive program (Pfizer &middot; AstraZeneca &middot; Teva &middot; Merck &middot; Amazon &middot; BioMed X &middot; Israel Innovation Authority). Contributed frameworks for AI-driven protein-pocket prediction and targeted protein degradation.</p>
+              <p class="edu-detail">Competitive co-founder program run with Pfizer, AstraZeneca, Teva, Merck, Amazon, BioMed X, and the Israel Innovation Authority. Focus on AI-driven targeted protein degradation and druggable-pocket prediction.</p>
             </div>
           </div>
 
           <div class="edu-item fade-up">
             <div class="edu-icon">🐾</div>
             <div class="edu-content">
-              <h3>Animal Handling Certifications</h3>
+              <h3>Laboratory Animal &amp; Imaging Certifications</h3>
               <div class="skill-tags" style="margin-top:0.75rem;">
-                <span class="tag tag-dark">Veterinary Clinician</span>
                 <span class="tag tag-dark">Laboratory Mouse Handling</span>
                 <span class="tag tag-dark">Whole-Animal Imaging (MRI &middot; CT &middot; Ultrasound &middot; IVIS)</span>
                 <span class="tag tag-dark">IVF &middot; FISH</span>
+                <span class="tag tag-dark">Python Programming</span>
               </div>
             </div>
           </div>
@@ -592,37 +781,72 @@ My background combines scientific depth with business execution: three 1st-place
   </section>
 
   <!-- ========== PUBLICATIONS ========== -->
-  <section id="publications">
+  <section id="publications" class="section-dark">
     <div class="container">
-      <h2 class="section-title">Publications</h2>
+      <h2 class="section-title" data-num="06">Publications</h2>
+      <p class="contact-lead" style="margin-bottom:2rem;">
+        Four peer-reviewed papers, two as first author. Every entry links to its DOI.
+      </p>
       <div class="pub-list">
+
         <div class="pub-item fade-up">
           <span class="pub-num">01</span>
           <p class="pub-title">
             <strong>Lipskerov F.</strong>, Cohen-Kaplan V., Ciechanover A.
-            <em>Precise Mapping of the Proteasome Interaction Region of p62/SQSTM1.</em>
+            <em>Precise Mapping of the Proteasome Interaction Region (PIR) of p62/SQSTM1: Decoupling Condensate Formation from Proteasome Recruitment.</em>
             <span class="pub-badge">first author</span>
           </p>
-          <p class="pub-journal"><strong>Cells</strong> (2026)</p>
+          <p class="pub-journal">
+            <strong>Cells</strong> 15(4), 335 (2026) &middot;
+            <a href="https://doi.org/10.3390/cells15040335" target="_blank" rel="noopener" class="inline-link">10.3390/cells15040335</a>
+          </p>
         </div>
+
         <div class="pub-item fade-up">
           <span class="pub-num">02</span>
           <p class="pub-title">
-            Komarova T.V., Sheshukova E.V., Kosobokova E.N., Kosorukov V.S., <strong>Lipskerov F.A.</strong>, et al.
-            <em>Bispecific trastuzumab/pertuzumab plant biosimilars boosted by disulfiram.</em>
+            <strong>Lipskerov F.A.</strong>, Sheshukova E.V., Komarova T.V.
+            <em>Approaches to Formaldehyde Measurement: From Liquid Biological Samples to Cells and Organisms.</em>
+            <span class="pub-badge">first author</span>
           </p>
-          <p class="pub-journal"><strong>Scientific Reports</strong> 9, 16168 (2019) &middot; Nature Portfolio</p>
+          <p class="pub-journal">
+            <strong>International Journal of Molecular Sciences</strong> 23(12), 6642 (2022) &middot;
+            <a href="https://doi.org/10.3390/ijms23126642" target="_blank" rel="noopener" class="inline-link">10.3390/ijms23126642</a>
+          </p>
         </div>
+
         <div class="pub-item fade-up">
           <span class="pub-num">03</span>
           <p class="pub-title">
-            <strong>Lipskerov F.A.</strong>, Sheshukova E.V., Komarova T.V.
-            <em>Approaches to Formaldehyde Measurement.</em>
-            <span class="pub-badge">first author</span>
+            Sheshukova E.V., Ershova N.M., <strong>Lipskerov F.A.</strong>, Komarova T.V.
+            <em>Enhanced Synthesis of Foreign Nuclear Protein Stimulates Viral Reproduction via the Induction of &gamma;-Thionin Expression.</em>
           </p>
-          <p class="pub-journal"><strong>International Journal of Molecular Sciences</strong> 23, 6642 (2022)</p>
+          <p class="pub-journal">
+            <strong>Plants</strong> 11(12), 1530 (2022) &middot;
+            <a href="https://doi.org/10.3390/plants11121530" target="_blank" rel="noopener" class="inline-link">10.3390/plants11121530</a>
+          </p>
         </div>
+
+        <div class="pub-item fade-up">
+          <span class="pub-num">04</span>
+          <p class="pub-title">
+            Komarova T.V., Sheshukova E.V., Kosobokova E.N., Kosorukov V.S., <strong>Lipskerov F.A.</strong>, et al.
+            <em>The biological activity of bispecific trastuzumab/pertuzumab plant biosimilars may be drastically boosted by disulfiram increasing formaldehyde accumulation in cancer cells.</em>
+          </p>
+          <p class="pub-journal">
+            <strong>Scientific Reports</strong> 9, 16168 (2019) &middot; Nature Portfolio &middot;
+            <a href="https://doi.org/10.1038/s41598-019-52507-9" target="_blank" rel="noopener" class="inline-link">10.1038/s41598-019-52507-9</a>
+          </p>
+        </div>
+
       </div>
+
+      <p class="pub-footnote">
+        Also two conference abstracts in <em>FEBS Open Bio</em> (2018, 2019) and a proceedings paper in
+        <em>Biology and Life Sciences Forum</em> (2022). Citation metrics on Google Scholar: 55 citations,
+        h-index 3.
+      </p>
+
       <div style="margin-top: 1.5rem;">
         <a href="https://scholar.google.com/citations?user=RN_mG_8AAAAJ" target="_blank" rel="noopener" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
@@ -635,11 +859,12 @@ My background combines scientific depth with business execution: three 1st-place
   </section>
 
   <!-- ========== CONTACT ========== -->
-  <section id="contact" class="section-dark">
+  <section id="contact">
     <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
+      <h2 class="section-title" data-num="07">Get In Touch</h2>
       <p class="contact-lead">
-        Open to research collaborations, pharma partnerships, consulting engagements, and biotech ventures.
+        Open to roles and collaborations across pharma R&amp;D, drug discovery, biotech business development, and
+        scientific due diligence. Based in Haifa, Israel.
       </p>
       <div class="contact-grid">
         <a href="mailto:fedorlipskerov@gmail.com" class="contact-card fade-up">
@@ -663,15 +888,15 @@ My background combines scientific depth with business execution: three 1st-place
             <span class="contact-value">linkedin.com/in/lipskerov</span>
           </div>
         </a>
-        <a href="https://scholar.google.com/citations?user=RN_mG_8AAAAJ" target="_blank" rel="noopener" class="contact-card fade-up">
-          <span class="contact-icon">🔬</span>
+        <a href="https://github.com/Lipskerov" target="_blank" rel="noopener" class="contact-card fade-up">
+          <span class="contact-icon">💻</span>
           <div>
-            <span class="contact-label">Google Scholar</span>
-            <span class="contact-value">View Publications</span>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">github.com/Lipskerov</span>
           </div>
         </a>
       </div>
-</div>
+    </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
@@ -682,6 +907,15 @@ My background combines scientific depth with business execution: three 1st-place
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const progress = document.getElementById('scrollProgress');
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = max > 0 ? (window.scrollY / max) * 100 + '%' : '0%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
 
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
