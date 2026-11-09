@@ -773,6 +773,8 @@ section {
 
 @media (min-width: 700px) {
   .project-card.featured { grid-column: span 2; }
+  .project-card.win { grid-column: 1 / -1; }
+  .project-card.win .project-desc { max-width: none; }
   .project-card.featured .project-desc { max-width: 70ch; font-size: 0.97rem; }
 }
 
@@ -810,6 +812,45 @@ section {
   color: var(--accent);
   background: var(--accent-soft);
   border-color: var(--accent-line);
+}
+
+.project-badge.win {
+  color: #8a5a00;
+  background: rgba(214, 158, 46, 0.12);
+  border-color: rgba(214, 158, 46, 0.4);
+}
+
+.section-dark .project-badge.win,
+[data-theme="dark"] .project-badge.win {
+  color: #f0c86a;
+  background: rgba(240, 200, 106, 0.10);
+  border-color: rgba(240, 200, 106, 0.35);
+}
+
+.project-card.win {
+  display: flex;
+  flex-direction: row;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.project-card.win .project-body { flex: 1 1 0; min-width: 0; }
+
+.project-media {
+  flex: 0 0 300px;
+  margin: 0;
+}
+
+.project-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .project-card.win { flex-direction: column; align-items: stretch; }
+  .project-media { flex-basis: auto; max-width: 260px; margin: 0 auto; }
 }
 
 .project-desc {
